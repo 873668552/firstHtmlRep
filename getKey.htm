@@ -16,7 +16,8 @@
             box-sizing: border-box;
         }
         div {
-            position: absolute;
+            position: fixed;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -25,7 +26,7 @@
     <script>
         //1 初始化数据
         initHtml();
-        //2
+        //2 定义全局变量
         var DIR = {
             DIR_LEFT: 37,
             DIR_TOP: 38,
@@ -34,7 +35,6 @@
         }
         var dir = DIR.DIR_BOTTOM;
         document.onkeyup = function (e) {
-            // console.log(e.keyCode);
             switch (e.keyCode) {
                 case 37:
                     dir = DIR.DIR_LEFT;
@@ -49,33 +49,34 @@
                     dir = DIR.DIR_BOTTOM;
                     break;
             }
-            // console.log(DIR);
         }
+
         // 3 moveFuntion
         function move() {
             var topSet = divFirst.offsetTop;
             var leftSet = divFirst.offsetLeft;
             switch (dir) {
-                // case DIR.DIR_TOP:divFirst.style.top = (topSet - 10) + "px"; break;
-                // case DIR.DIR_BOTTOM:divFirst.style.top = (topSet + 10) + "px"; break;
-                // case DIR.DIR_LEFT:divFirst.style.left = (leftSet - 10) + "px"; break;
-                // case DIR.DIR_RIGHT:divFirst.style.left = (leftSet + 10) + "px"; break;
-                case DIR.DIR_TOP: topSet= (topSet - 10); break;
-                case DIR.DIR_BOTTOM: topSet= (topSet + 10); break;
-                case DIR.DIR_LEFT: leftSet = (leftSet - 10); break;
-                case DIR.DIR_RIGHT: leftSet = (leftSet + 10); break;
+                case DIR.DIR_TOP:divFirst.style.top = (topSet - 10) + "px"; break;
+                case DIR.DIR_BOTTOM:divFirst.style.top = (topSet + 10) + "px"; break;
+                case DIR.DIR_LEFT:divFirst.style.left = (leftSet - 10) + "px"; break;
+                case DIR.DIR_RIGHT:divFirst.style.left = (leftSet + 10) + "px"; break;
+                // case DIR.DIR_TOP: topSet= (topSet - 10); break;
+                // case DIR.DIR_BOTTOM: topSet= (topSet + 10); break;
+                // case DIR.DIR_LEFT: leftSet = (leftSet - 10); break;
+                // case DIR.DIR_RIGHT: leftSet = (leftSet + 10); break;
             }
         }
-        //
+        //设置驱动事件
         setInterval(move,1000);
+        
         ////初始化函数
         function initHtml() {
             var divMove = document.createElement("div");
             divMove.id = "divFirst"
             divMove.style.height = "10px";
             divMove.style.width = "10px";
-            divMove.style.top = "0";
-            divMove.style.left = "0";
+            divMove.style.top = "10px";
+            divMove.style.left = "10px";
             divMove.style.background = "red";
             ///
             document.body.appendChild(divMove);
