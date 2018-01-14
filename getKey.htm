@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+        body{
+            box-sizing: border-box;
+        }
+        div {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //1 初始化数据
+        initHtml();
+        //2
+        var DIR = {
+            DIR_LEFT: 37,
+            DIR_TOP: 38,
+            DIR_RIGHT: 39,
+            DIR_BOTTOM: 40
+        }
+        var dir = DIR.DIR_BOTTOM;
+        document.onkeyup = function (e) {
+            // console.log(e.keyCode);
+            switch (e.keyCode) {
+                case 37:
+                    dir = DIR.DIR_LEFT;
+                    break;
+                case 38:
+                    dir = DIR.DIR_TOP;
+                    break;
+                case 39:
+                    dir = DIR.DIR_RIGHT;
+                    break;
+                case 40:
+                    dir = DIR.DIR_BOTTOM;
+                    break;
+            }
+            // console.log(DIR);
+        }
+        // 3 moveFuntion
+        function move() {
+            var topSet = divFirst.offsetTop;
+            var leftSet = divFirst.offsetLeft;
+            switch (dir) {
+                // case DIR.DIR_TOP:divFirst.style.top = (topSet - 10) + "px"; break;
+                // case DIR.DIR_BOTTOM:divFirst.style.top = (topSet + 10) + "px"; break;
+                // case DIR.DIR_LEFT:divFirst.style.left = (leftSet - 10) + "px"; break;
+                // case DIR.DIR_RIGHT:divFirst.style.left = (leftSet + 10) + "px"; break;
+                case DIR.DIR_TOP: topSet= (topSet - 10); break;
+                case DIR.DIR_BOTTOM: topSet= (topSet + 10); break;
+                case DIR.DIR_LEFT: leftSet = (leftSet - 10); break;
+                case DIR.DIR_RIGHT: leftSet = (leftSet + 10); break;
+            }
+        }
+        //
+        setInterval(move,1000);
+        ////初始化函数
+        function initHtml() {
+            var divMove = document.createElement("div");
+            divMove.id = "divFirst"
+            divMove.style.height = "10px";
+            divMove.style.width = "10px";
+            divMove.style.top = "0";
+            divMove.style.left = "0";
+            divMove.style.background = "red";
+            ///
+            document.body.appendChild(divMove);
+            document.body.style.height = "100%";
+            document.body.style.background = "gray";
+            document.body.style.border = "10px solid black";
+        }
+    </script>
+</body>
+
+</html>
