@@ -1,0 +1,32 @@
+{
+    "开封":[{
+        "title":["龙庭","百岁山","上河园","韩圆","未知","未知"],
+        "img":"http://m.tuniucdn.com/filebroker/cdn/olb/c9/70/c9701b1b44a7686505f2475fce539069_w320_h180_c0_t0_w400_h300_c0_t0.png",
+        "p":["凉风","秋月","无花","五柳","锄禾","当午"],
+        "price":[111,222,123,321,213,321]
+        }],
+    "西安":[{
+        "title":["龙庭","百岁山","上河园","韩圆","未知","未知"],
+        "img":"http://m.tuniucdn.com/filebroker/cdn/prd/c5/65/c565f806739aa2f7677b17b95c06bfa7_w320_h180_c0_t0_w400_h300_c0_t0.jpg",
+        "p":["凉风","秋月","无花","五柳","锄禾","当午"],
+        "price":[111,222,123,321,213,321]
+        }],
+    "洛阳":[{
+        "title":["龙庭","百岁山","上河园","韩圆","未知","未知"],
+        "img":"http://m.tuniucdn.com/fb2/t1/G2/M00/11/3E/Cii-TFeRl5iIcEomAA1STIMt0CkAAAYnAEcFg0ADVJk556_w320_h180_c0_t0.jpg",
+        "p":["凉风","秋月","无花","五柳","锄禾","当午"],
+        "price":[111,222,123,321,213,321]
+        }],
+    "太原":[{
+        "title":["龙庭","百岁山","上河园","韩圆","未知","未知"],
+        "img":"https://m.tuniucdn.com/fb2/t1/G1/M00/A2/A7/Cii9EFjE9XuIEIlwABak3kZRDXsAAIxsgO6-msAFqT2236_w320_h180_c0_t0.jpg",
+        "p":["凉风","秋月","无花","五柳","锄禾","当午"],
+        "price":[111,222,123,321,213,321]
+        }],
+    "成都":[{
+        "title":["龙庭","百岁山","上河园","韩圆","未知","未知"],
+        "img":"http://m.tuniucdn.com/fb2/t1/G5/M00/3B/F8/Cii-tFpcRgSIeaZaAApZucB_gxoAACUXgIFuxkAClnR746_w320_h180_c0_t0.jpg",
+        "p":["凉风","秋月","无花","五柳","锄禾","当午"],
+        "price":[111,222,123,321,213,321]
+        }]
+}

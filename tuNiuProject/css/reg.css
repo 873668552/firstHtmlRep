@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,h1,h3,h2,h4,h5,h6,p,dl,dd,ul,li,ol,td,form,label,input,fieldset,legend{margin:0; padding:0;}
+
+li{list-style:none;}
+a{text-decoration:none; font-size:12px; }
+body{width: 100%;height: 100%;; font-size:14px; font-family:"微软雅黑"; color:#666; background:url(../img/reg/bg.jpg) no-repeat;}
+img{border:none;}
+a,input{outline:none;}
+em,i{font-style:normal;}
+b,strong,h1,h2,h3,h4,h5,h6{font-weight:normal;}
+.clear:after{content:""; display:block; clear:both; height:0; visibility:hidden;}
+table{border-collapse:collapse;}
+/* 头部 topDiv */
+#topDiv{height: 100px; border-bottom: 3px solid #2e9900;background: white;}
+.topCon{width: 1200px;height: 79px; margin: 0 auto;padding-top: 18px;}
+.topCon>img{display: block;float: left; width: 123px ; height: 50px;}
+.topCon>p{float: left; width: 117px;height: 47px;color: #333;border-left:1px solid #efefef;padding-left: 20px; font: 24px/47px "microsoft yahei"}
+
+/* 中间 */
+#midDiv{position: relative; width: 1200px;height: 75px;margin: 0 auto;}
+#midDiv>img{display: block;position: absolute;left: 311px;top: -3px; width: 123px; height: 65px; }
+#midDiv>div{float: right;width: 176px;padding-top: 26px; height: 22px;color: #fff;text-align: left; }
+#midDiv>div>a{font-size: 14px; padding: 1px 10px;color: #fff;border: 1px solid #fff;text-align: center;line-height: 22px;margin-left: 10px;}
+
+/* 内容 */
+#conDiv{width: 1200px; height: 608px;margin: 0 auto;}
+.conTop{position: relative; height: 60px;background: #2e9900;line-height: 60px; text-align: center;font-size: 22px; color: white;font-size: 22px}
+.smallSpan{display: block;position: absolute;z-index:100; left: 596px;bottom: -8px; height: 0;width: 0;border-top: 8px solid #2e9900;border-left: 5px solid transparent;border-right: 5px solid transparent;}
+/* position: absolute;top: 36px; left: 323px;  */
+.conCon{position: relative; height: 548px;padding:36px 0 0 321px ; background: white}
+/* .firstCon{display: none;} */
+
+.conTitle{margin-bottom: 60px; width: 560px; height: 45px;background: url(../img/reg/title.png) no-repeat; background-position: 0 0;}
+
+/* 密码界面 */
+.conTitle2{background-position: 0px -25px;}
+.phone_pw_p{padding-left: 20px;padding-top: 20px;}
+.phone_pw_p:nth-child(1){padding-top: 100px; }
+.phone_pw_p_l{display: inline-block;width: 100px;height: 38px;font-size: 16px;color: #333;line-height: 38px;text-align: left;}
+.phone_pw_p_l:before{
+    content: '*';
+    position: relative;
+    color: red;
+    right: 8px;
+}
+/* phone_pw_span 提示信息span */
+.phone_pw_span{float: right; margin-right: 83px; display: block; width: 346px;height: 28px; padding: 2px 3px;background: #dedede;
+line-height: 28px; border: 1px solid #dedede;}
+.pw_i{display: inline-block;height: 28px; width: 115px; line-height: 28px; text-align: center;color: #dedede}
+/* 输入框 */
+.phone_pw_p>input{display: inline-block; width: 345px;height: 28px; padding: 2px 3px;line-height: 28px; border: 1px solid #dedede;}
+/* 成功界面 */
+.conTitle3{background-position: 0px -96px;}
+
+/* 登录界面 */
+
+/* phone_reg ul注册 */
+.phone_reg{padding-left: 45px;}
+.phone_reg>li:nth-child(n + 1 ) {height:51px; }
+.phone_reg>li:last-child{height: 26px;}
+/* 第一个li */
+.phone_reg>li>div{float: left;height: 51px;}
+/* 1 左边 */
+.phone_reg_li_divl{}
+.p_r_l_d_l{
+    display: inline-block;
+    width: 84px;
+    color: #333;
+    font-size: 14px;
+    text-align: right;
+    height: 34px;
+    line-height: 28px;
+    padding: 2px 0;} /* 手机号码  */
+.p_r_l_d_l:before{
+    content: '*';
+    position: relative;
+    color: red;
+    right: 8px;
+}
+
+.p_r_l_d_d{
+    position: relative;
+    display: inline-block;
+    margin-right: 4px;
+    width: 120px;
+    border: 1px #DEDEDE solid;
+    /* border-bottom: none; */
+}
+.phone_info_div{ 
+    position: relative;
+    display: inline-block;
+    padding: 5px 0 5px 10px;
+    width: 110px;
+    line-height: 22px;
+    font-size: 12px;
+    background-color: #FFF;
+    cursor: pointer;
+    z-index: 20;
+}
+/* 开关div */
+.phone_info_btn{position: absolute;width: 32px; height: 32px; left: 88px; top: 0px;;z-index: 1000;cursor: pointer; }
+.phone_info_btn>span{display: block;position: absolute;top: 13px; left: 13px; width: 0;height: 0; cursor: pointer; border-top: 6px solid red;border-left: 3px solid transparent;border-right: 3px solid transparent;}
+/* phone_first 手机区号  phone_first_title phone_first_show*/
+.phone_first{overflow: hidden; position: absolute;top: 31px;width: 439px;  border: 1px solid  #dedede; display: none;z-index: 10;left: -1px; background: white;}
+.phone_first_title{overflow: hidden;padding: 10px;}
+.phone_first_title>li{float: left;width: 16px; height: 30px;border-bottom: 1px solid #666;text-align: center;line-height: 30px;}
+/* .phone_first_title>li:first{border: 1px solid #dedede;border-bottom: none;border-top: 1px solid red; margin-top: 1px;} */
+#firstLi{border: 1px solid #666;border-top: 1px solid red; border-bottom: none;line-height: 28px;}
+.phone_first_show{overflow: hidden;padding: 10px;display: none}
+
+.phone_first_show>li{float: left; width: 100px; height: 20px;}
+.p_r_l_d_i{
+    height: 28px;
+    line-height: 28px;
+    padding: 2px 3px;
+    padding-left: 15px;
+    border: 1px solid #dedede;
+    /* border-bottom: none; */
+    color: #666;
+    width: 206px;
+    font-size: 14px;
+}
+/* 2 右边 */
+.phone_reg_li_divr{ }
+.phone_reg_li_divr>div{width: 200px;height: 38px;padding-left: 10px; line-height: 38px; text-align: left;}
+.phone_reg_li_divr>div>span:nth-child(2){padding-left: 10px;}
+
+/* 第二个li */
+.check_info_div{float: left;width: 100px; height: 34px; line-height: 34px; text-align: center;color: #333;font-size: 14px;}
+.check_info{display: inline-block;padding: 2px 3px; width: 348px;line-height: 28px; height: 28px;;border: 1px solid #dedede}
+.check_info>input{width: 202px;line-height: 28px; height: 28px;display: inline-block;border:0 none;margin-right: 20px;}
+.check_info>span{padding: 2px 3px;cursor: pointer}
+/* 3 */
+.dy_input{width: 354px;height: 32px; border: 1px solid #dedede}
+/* 4 */
+.invite_input{width: 354px;height: 32px; border: 1px solid #dedede}
+.change_Div{display: inline-block;}
+/* 最后一个 */
+#phone_reg_li_last{padding-left: 103px;font-size: 12px; line-height: 19px; text-align: center;height: 22px;}
+#phone_reg_li_last>input{display: inline-block;width: 13px; height: 13px; }
+
+/* tijao */
+.phone_btn{display: inline-block; width: 312px;height: 40px; background: orange;line-height: 40px; font-size: 18px; text-align: center; margin: 20px 150px;border: 0 none; color: white;}
+.phone_btn3{margin: 200px 150px;}

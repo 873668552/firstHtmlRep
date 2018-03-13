@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>途牛首页-分享快乐-找回密码</title>
+
+    <link rel="icon" href="../img/tuniu.ico" type="image/x-icon"/>  
+    <link rel="shortcut icon" href="../img/tuniu.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/getPW.min.css">
+    <link rel="stylesheet" href="../css/font/iconfont.css">
+    
+    <script src="../js/htmljs/login.js" defer async="async"></script>
+    <script src="../js/htmljs/cookie.js" defer async="async"></script>
+</head>
+<body>
+     <!-- 头部 -->
+     <div id="topDiv">
+        <div class="topCon">
+            <img src="../img/reg.png" alt="">
+            <p>找回密码</p>
+        </div>
+    </div>
+    <!-- body -->
+    <div id="conDiv">
+        <div>
+            <div>
+                <p><span>用户:</span> <input type="text" class="getPWname"></p>
+                <p><span>显示密码:</span> <span class="getPW_show">1111</span></p>
+                <p><span>输入动态码:</span> <input type="text" class="getPW_input"><input class="btn_all" type="button" value="确定"></p>
+                <p><span class="getDy_span">1111</span> <input class="Dy_btn" type="button" value="获取动态码"></p>
+                <input type="text" class="getPw_login" value="登录">
+            </div>
+        </div>
+    </div>
+    <!--  -->
+    <div id="lastSer5">
+        <p>北京途牛国际旅行社有限公司，旅行社业务经营许可证编号：L-BJ-CJ00144　　上海途牛国际旅行社有限公司，旅行社业务经营许可证编号：L-SH-CJ00107    </p>
+        <p id='lastSer5_linkp1' class="lastSet_P">
+            <a href="http://www.tuniu.com/corp/aboutus.shtml" target="_blank" rel="nofollow">关于我们</a>
+            <a rel="nofollow" href="http://ir.tuniu.com" target="_blank">Investor Relations</a>
+            <a href="http://www.tuniu.com/corp/contactus.shtml" target="_blank" rel="nofollow">联系我们</a>
+            <a href="http://www.tuniu.com/corp/advise.shtml" target="_blank" rel="nofollow">投诉建议</a>
+            <a rel="nofollow" href="http://www.tuniu.com/corp/advertising.shtml" target="_blank">广告服务</a>
+            <a rel="nofollow" href="http://www.tuniu.com/giftcard/" target="_blank">旅游券</a>
+            <a rel="nofollow" href="http://tuniu.zhiye.com/" target="_blank" style="color: red;">途牛招聘</a>
+            <a href="http://www.tuniu.com/corp/privacy.shtml" target="_blank" rel="nofollow">隐私保护</a>
+            <a href="http://www.tuniu.com/corp/duty.shtml" target="_blank" rel="nofollow">免责声明</a>
+            <a rel="nofollow" href="http://www.tuniu.com/corp/zizhi.shtml" target="_blank">旅游度假资质</a>
+            <a rel="nofollow" href="http://www.tuniu.com/theme/index/" target="_blank">主题旅游</a>
+            <a href="http://www.tuniu.com/corp/agreement.shtml" target="_blank" rel="nofollow">用户协议</a>
+            <a href="http://www.tuniu.com/corp/sitemap.shtml" target="_blank">网站地图</a>
+            <a rel="nofollow" target="_blank" href="http://www.tuniu.com/ueip/">UEIP</a><br>
+            <a rel="nofollow" href="http://www.tuniu.com/help/" target="_blank">帮助中心</a>
+        </p>
+        <p id="lastSer5_linkp2" class="lastSet_P">Copyright © 2006-2018        <a rel="nofollow" href="http://www.tuniu.com">南京途牛科技有限公司</a>
+            <a rel="nofollow" href="http://www.tuniu.com">Tuniu.com</a> |
+            <a target="_blank" href="http://www.tuniu.com/corp/company.shtml" rel="nofollow">营业执照</a> |
+            <a target="_blank" href="http://www.miibeian.gov.cn/" rel="nofollow">ICP证：苏B2-20130006</a> |
+            <a target="_blank" href="http://www.miibeian.gov.cn/" rel="nofollow">苏ICP备12009060号</a> |
+            <a target="_blank" href="http://sh.tuniu.com">上海旅游网</a>
+        </p>
+    </div>
+    
+</body>
+    <script src="../js/amdLib/jq.js" ></script>
+    <script>
+        var getDy,inpDy,url = 'http://localhost:8010/tuNiuProject/PHP/reg/dt.php?data=';
+        // 获取动态码 getDy_span  Dy_btn http://localhost:8010/tuNiuProject/PHP/reg/dt.php?data=
+        $(function(){
+            // 添加事件
+            addClick();
+        })
+        function addClick(){
+            // 1 获取动态码
+            $('.Dy_btn').click(function(){
+                getStr(url + getRandom(),function(res){
+                    $('.getDy_span').html(res);
+                })
+            })
+            // 2 btn_all 确定点击事件 getPW_input
+            $('.btn_all').click(function(){
+                // alert($('.getDy_span').html());
+                // alert($('.getPW_input').val());
+                if( $('.getDy_span').html() == $('.getPW_input').val() ){
+                    getStr('http://localhost:8010/tuNiuProject/PHP/reg.json',function(res){
+                        decodeJsonStr(res);
+                    });
+                }else{
+                    $('.getPW_show').html('请完善信息');
+                    $('.getPw_login').css('display','none');
+                }
+            })
+             // 3 登录恩牛事件 getPWname 名字input  密码span getPW_show
+            $('.getPw_login').click(function(){
+                // getCookie(_name)
+                // function setCookie(_name, _value, _date, _path)
+                setCookie('get_pw',{
+                    "name":$('.getPWname').val(),
+                    "pw":$('.getPW_show').html()
+                },0);
+                window.location.href = 'model.html';
+                // console.log(getCookie("get_pw"));
+            })
+        }
+
+        // 产生随机数字
+        function getRandom(){
+            return ''+ parseInt(Math.random()*10) +parseInt(Math.random()*10) +parseInt(Math.random()*10) +
+            parseInt(Math.random()*10) +parseInt(Math.random()*10) +parseInt(Math.random()*10) ;
+        }
+        // 封装JQ_ajax
+        function getStr(url,fn){
+            $.ajax({
+                'url' : url ,
+                // 'data' : {'a':4,'b':5},
+                'type' : 'get',
+                // 'dataType':'json',
+                'success' : function(response, status, xhr){
+                    fn(response);
+                },
+                'error' : function(e){
+                    console.log('程序出错啦',e)	
+                }
+            });
+        }
+       
+        
+        // 解析数据
+        function decodeJsonStr(res){
+            // console.log(res);
+            alert(res);
+            var arr1 = res.split(','),key=[],valueArr=[],
+                set = new Set();
+                // console.log(arr1);
+                arr1.forEach(function(val,ind){
+                    set.add(val.split('_')[0]);
+                    valueArr.push(val.split("_")[1]);
+                })
+                // console.log(set,valueArr); getPW_show
+                key = Array.from(set);
+                for(var i = 1 ,len = valueArr.length;i < len; i++){
+
+                    // console.log( "pwName="+ $('.getPWname').val(),"key="+ key); 
+                    if(key[i] == $('.getPWname').val()){
+                        $('.getPW_show').html(valueArr[i]);
+                        $('.getDy_span').html('');
+                        $('.getPw_login').css('display','block');
+                        break;
+                    }
+                    if(i == len -1){
+                        $('.getPW_show').html('没有此用户');
+                        $('.getPw_login').css('display','none');
+                        
+                    }
+                }
+        }
+    </script>
+</html>

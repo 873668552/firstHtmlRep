@@ -1,0 +1,198 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,h1,h3,h2,h4,h5,h6,p,dl,dd,ul,li,ol,td,form,input,fieldset,legend{margin:0; padding:0;}
+
+li{list-style:none;}
+a{text-decoration:none; font-size:12px; }
+body{font-size:14px; font-family:"微软雅黑"; color:#666; background:#fff;}
+img{border:none;}
+a,input{outline:none;}
+em,i{font-style:normal;}
+b,strong,h1,h2,h3,h4,h5,h6{font-weight:normal;}
+.clear:after{content:""; display:block; clear:both; height:0; visibility:hidden;}
+table{border-collapse:collapse;}
+
+// 界面的书写
+$red : red;
+$bg:'background';
+// 宏定义函数
+@mixin divCenter {
+    margin: 0 auto;
+}
+@mixin divLeft($value:10px){
+    float: left;
+    margin-left: $value;
+}
+// 继承选择器
+@mixin w($value1:10,$value2:10,$bg:blue){
+    width:  #{$value1}px;
+    height: #{$value2}px;
+    background: $bg;
+}
+@mixin bg($imgurl:1,$top:0,$center:0){
+    background-image: url($imgurl);
+    background-position:$top $center;
+}
+@mixin addStyle($w:10,$h:10,$p:none,$bg:none){
+    @if($w !=0) {width: #{$w}px};
+    @if($h !=0){height: #{$h}px;}
+    @if($p != none ){position: $p};
+    @if($bg != none ){background: $bg};
+}
+@mixin addPosition($top:0,$bottm:0,$left:0,$right:0){
+    @if($top !=0) {top: #{$top}px};
+    @if($bottm !=0){bottom: #{$bottm}px;}
+    @if($left != 0 ){left: #{$left}px};
+    @if($right != 0 ){right: #{$right}px};
+}
+@mixin addFont($size:0,$lh:0,$al:0,$color:0){
+    @if($size !=0) {font-size: #{$size}px};
+    @if($lh !=0){line-height: #{$lh}px;}
+    @if($al != 0 ){text-align: #{$al}};
+    @if($color != 0 ){color: #{$color}};
+}
+// .class{
+//     width: 100px; 
+//     @include w(200,200,red);
+//     height: 100px;
+// }
+// .one{
+//     @include divLeft(100px);
+//     @extend .class;
+// }   
+
+// 头部
+$hid:hidden;
+/* 头部 topDiv */
+#topDiv{height: 100px;background: white;}
+.topCon{width: 1200px;height: 79px; margin: 0 auto;padding-top: 18px;}
+.topCon>img{display: block;float: left; width: 123px ; height: 50px;}
+.topCon>p{float: left; width: 117px;height: 47px;color: #333;border-left:1px solid #efefef;padding-left: 20px; font: 24px/47px "microsoft yahei"}
+// 登录界面
+$url:'../img/login/bg.jpeg';
+#conDiv{
+    @include bg($url,top,center);// 图片
+    @include addStyle(0,560,none );
+     >div{
+         @include divCenter;
+         @include addStyle(1200,560,relative );
+
+         >div{
+             @include addStyle(400,450,absolute,white );
+             @include addPosition(60,0,760,0);
+
+            >ul{
+            //    overflow: hidden;
+                overflow: $hid;
+                @include addStyle(400,27 );
+                padding: 10px 0;
+                border: 1px solid #dedede;
+                @for $i from 1 to 3{
+                    >li:nth-child(#{$i}){
+                        float: left;
+                        @include addFont(18,27,center,#333);
+                        @include addStyle(197,27 );
+                        @if($i == 1){
+                            border-right: 1px solid #dedede;
+                        }
+                    }
+                }
+             }
+
+             @for $i from 2 to 5{
+                >div:nth-child(#{$i}){
+                    border: 1px solid #dedede;
+                    @include addStyle(338,40,none );
+                    // @mixin addFont($size:0,$lh:0,$al:0,$color:0)
+                    @include addFont(16,40 ,left ,#333 );
+                    margin: 10px 36px;
+                    @if($i == 2){
+                        border: none;
+                        margin: 5px 36px;
+                    }
+                    >label{
+                        display: inline-block;
+                        @include addStyle(60,40,none );
+                    }
+                    >input{
+                        display: inline-block;
+                        border:none;
+                        @include addStyle(150,22,none );
+                        @include addFont(12,22 ,left ,#333 );
+                        padding: 9px 0 0;
+                    }
+                    >span{
+                        @include addFont(12,40 ,center ,#333 );
+                    }
+                }
+             }
+             >div:nth-child(5){
+                @include addStyle(340,53,relative );
+                margin: 0 auto;
+                padding: 24px 0 0;
+                >a{
+                    display: block;
+                    float: right;
+                }
+             }
+             >div:nth-child(6){
+                @include addStyle(0,163,relative );
+                // 其他登陆方式
+                >div:nth-child(1){
+                    @include addStyle(80,21,absolute,white );
+                    @include addFont(12,21,center,#333);
+                    @include addPosition(93,0,160,0);
+                    padding: 1px;
+                    z-index: 2;
+                }
+                >div:nth-child(2){
+                    @include addStyle(400,60,absolute );
+                    border-top: 1px dashed #dedede;
+                    @include addPosition(104,0,0,0);
+                    @for $i from 1 to 5{
+                        >a:nth-child(#{$i}){
+                            display: inline-block;
+                            @include addStyle(90,60 );
+                            @include addFont(12,60,center,#333);
+                        }
+                        @if($i == 1){
+                            margin-left: 10px;
+                        }
+                    }
+                    
+                }
+                >div:nth-child(3){
+                    @include addStyle(300,45,relative,orange );
+                    @include addFont(20,45,center,#333);
+                    margin: 0 auto;
+                }
+                // 找回密码
+                >div:nth-child(4){
+                    margin: 0 auto;
+                    @include addStyle(340,60 );
+                    >a:nth-child(1){
+                        display: block;
+                        float: left;
+                        margin-left: 10px;
+                        @include addStyle(100,60 );
+                        @include addFont(12,60,center,#333);
+                    }
+                    >a:nth-child(2){
+                        display: right;
+                        float: right;
+                        margin-right: 10px;
+                        @include addStyle(100,60 );
+                        @include addFont(12,60,center,#333);
+                    }
+                }
+             }
+         }
+    }
+}
+
+// 尾部
+#lastSer5{width: 1000px; margin: 10px auto 10px;position:relative}
+#lastSer5>p{ text-align: center;font-size:12px; color: #777;line-height: 1.9}
+.lastSet_P a{text-align: center; font-size: 12px; color: #777;margin: 0 5px;cursor: pointer;line-height: 1.9}
+.lastSer5_div{width: 525px;height: 40px;margin: 0 auto;}

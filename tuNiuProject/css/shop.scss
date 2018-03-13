@@ -1,0 +1,17 @@
+// 添加样式的宏定义
+@mixin addStyle($width:0,$height:0,$p:0,$bg:0,$margin:0,$pd:0){
+    @if($width != 0){width: #{$width}px;}
+    @if($height != 0){height: #{$height}px;}
+    @if($p != 0){position: $p;}
+    @if($bg != 0){background: $bg;}
+    @if($margin != 0){margin: $margin;}
+    @if($pd != 0){padding: $pd;}
+}
+// 评价
+.summerDiv{
+    @include addStyle(1190,52 ,0 ,0 ,'0 auto' ,0 );
+}
+//
+#ban{
+    // @include addStyle(0, , , , , )
+}

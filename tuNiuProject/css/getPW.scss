@@ -1,0 +1,181 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,h1,h3,h2,h4,h5,h6,p,dl,dd,ul,li,ol,td,form,input,fieldset,legend{margin:0; padding:0;}
+
+li{list-style:none;}
+a{text-decoration:none; font-size:12px; }
+body{font-size:14px; font-family:"微软雅黑"; color:#666; background:#fff;}
+img{border:none;}
+a,input{outline:none;}
+em,i{font-style:normal;}
+b,strong,h1,h2,h3,h4,h5,h6{font-weight:normal;}
+.clear:after{content:""; display:block; clear:both; height:0; visibility:hidden;}
+table{border-collapse:collapse;}
+
+// 界面的书写
+$red : red;
+$bg:'background';
+// 宏定义函数
+@mixin divCenter {
+    margin: 0 auto;
+}
+@mixin divLeft($value:10px){
+    float: left;
+    margin-left: $value;
+}
+// 继承选择器
+@mixin w($value1:10,$value2:10,$bg:blue){
+    width:  #{$value1}px;
+    height: #{$value2}px;
+    background: $bg;
+}
+@mixin bg($imgurl:1,$top:0,$center:0){
+    background-image: url($imgurl);
+    background-position:$top $center;
+}
+@mixin addStyle($w:10,$h:10,$p:none,$bg:none){
+    @if($w !=0) {width: #{$w}px};
+    @if($h !=0){height: #{$h}px;}
+    @if($p != none ){position: $p};
+    @if($bg != none ){background: $bg};
+}
+@mixin addPosition($top:0,$bottm:0,$left:0,$right:0){
+    @if($top !=0) {top: #{$top}px};
+    @if($bottm !=0){bottom: #{$bottm}px;}
+    @if($left != 0 ){left: #{$left}px};
+    @if($right != 0 ){right: #{$right}px};
+}
+@mixin addFont($size:0,$lh:0,$al:0,$color:0){
+    @if($size !=0) {font-size: #{$size}px};
+    @if($lh !=0){line-height: #{$lh}px;}
+    @if($al != 0 ){text-align: #{$al}};
+    @if($color != 0 ){color: #{$color}};
+}
+// .class{
+//     width: 100px; 
+//     @include w(200,200,red);
+//     height: 100px;
+// }
+// .one{
+//     @include divLeft(100px);
+//     @extend .class;
+// }   
+
+// 头部
+$hid:hidden;
+/* 头部 topDiv */
+#topDiv{height: 100px;background: white;}
+.topCon{width: 1200px;height: 79px; margin: 0 auto;padding-top: 18px;}
+.topCon>img{display: block;float: left; width: 123px ; height: 50px;}
+.topCon>p{float: left; width: 117px;height: 47px;color: #333;border-left:1px solid #efefef;padding-left: 20px; font: 24px/47px "microsoft yahei"}
+// 登录界面
+$url:'../img/login/bg.jpeg';
+#conDiv{
+    @include bg($url,top,center);// 图片
+    @include addStyle(0,560,none );
+    >div{
+        margin: 0 auto;
+        padding-top: 100px;
+        @include addStyle(1200,460,none );
+       >div{
+        margin:0 0 0 700px;
+        @include addStyle(400,450,none,white );
+            @for $i from 1 to 5{
+                >p:nth-child(#{$i}){
+                    @include addStyle(400,30,none);
+                    @include addFont(12,30,left,#333);
+                    margin: 10px 0;
+                    @if($i == 1){
+                        margin: 0;
+                        padding-top: 100px;
+                        >span{
+                            display: inline-block;
+                            height: 30px;
+                            width: 20%;
+                            text-align: right;
+                        }
+                        >input{
+                            width: 60%;
+                            height: 28px;
+                            text-align: center;
+                            border: 1px solid #dedede;
+                        }
+                    }
+                    // 显示密码
+                    @if($i == 2){
+                        >span{
+                            display: inline-block;
+                            height: 30px;
+                        }
+                        >span:nth-child(1){
+                            width: 20%;
+                            text-align: right;
+                        }
+                        >span:nth-child(2){
+                            width: 60%;
+                            text-align: center;
+                            background: #999;
+                        }
+                    }
+                    // 输入动态码
+                    @if($i == 3){
+                        >*{
+                            display: inline-block;
+                        }
+                        >span{
+                            width: 20%;
+                            height: 30px;
+                            text-align: right;
+                        }
+                        >input{
+                            width: 20%;
+                            height: 28px;
+                            text-align: center;
+                            border: 1px solid #dedede;
+                        }
+                        >.getPW_input{
+                            width: 50%;
+                        }
+                    }
+                    // 获取动态码
+                    @if($i == 4){
+                        position: relative;
+                        >*{
+                            display: inline-block;
+                            height: 30px;
+                        }
+                        >span{
+                            width: 60%;
+                            line-height: 30px;
+                            text-align: center;
+                            background: #999;
+                        }
+                        >input{
+                            position: absolute;
+                            top: 0;
+                            left: 60%;
+                            width: 30%;
+                            text-align: center;
+                            border: 1px solid #dedede;
+                        }
+                    }
+                }
+            }
+            >input{
+                display: none;
+                margin: 30px auto 0;
+                border: none;
+                @include addFont(18,45,center,white);
+                @include addStyle(300,45,none,orange );
+
+            }
+       }
+    }
+}
+
+// 尾部
+#lastSer5{width: 1000px; margin: 10px auto 10px;position:relative}
+#lastSer5>p{ text-align: center;font-size:12px; color: #777;line-height: 1.9}
+.lastSet_P a{text-align: center; font-size: 12px; color: #777;margin: 0 5px;cursor: pointer;line-height: 1.9}
+.lastSer5_div{width: 525px;height: 40px;margin: 0 auto;}
