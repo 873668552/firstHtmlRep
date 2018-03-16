@@ -323,7 +323,7 @@ class AddData{
     constructor(){
         // 1 得到数据
         this.data = get('http://localhost:8010/tuNiuProject/PHP/homeBodyData.json',function(res){
-            console.log(this);
+            // console.log(this);
             
             this.data = JSON.parse(res);
         }.bind(this) )

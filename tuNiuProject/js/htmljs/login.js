@@ -31,19 +31,24 @@ get('http://localhost:8010/tuNiuProject/PHP/reg.json',function(res){
         set.add(val.split('_')[0]);
     })
     nameJson = Array.from(set);
+    console.log(nameJson)
 })
 // 焦点事件
 logName.onblur = function(){
     if(nameJson.length != 0){
-        nameJson.forEach(function(val){
-            if(this.value == val){
+       
+        for(let i = 0,len=nameJson.length;i<len;i++){
+            if(this.value == nameJson[i]){
+                console.log(123);
                 showSpans[0].innerHTML = '<i class="iconfont" style= "color: green !important" >&#xe6e1;</i>';
                 showSpans[1].innerHTML = 'are you ok..';
+                break;
             }else{
+               
                 showSpans[0].innerHTML = '<i class="iconfont" style= "color: red !important" >&#xe638;</i>';
                 showSpans[1].innerHTML = '用户不存在请核实情况'
             }
-        },this)
+        }
     }
 }
 var logFlag = false;

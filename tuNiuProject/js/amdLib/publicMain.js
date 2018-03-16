@@ -34,6 +34,7 @@ require(['jquery','base','header','jsonp','cmdCookie'],function(JQ,base,header,j
 
 		var getPW = cookieObj.getCookie('get_pw'),// 其他登录
 		twoWeek = cookieObj.getCookie('two_pw'),// 两周登录
+		
 		LoginLis =  JQ('.navTop_left');
 		if(getPW != undefined){// 正常登录
 			// console.log();
