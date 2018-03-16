@@ -17,10 +17,17 @@ function get(url,fn){
     }
 }    
 get('http://localhost:8010/tuNiuProject/PHP/reg/removeSame.php',function(res){
-    alert(res);
-    var arr1 = res.split(','),key=[],valueArr=[],
+    // alert(res);
+   
+    var arr = res.split(','),key=[],valueArr=[],
     set = new Set(),
-    str = '';
+    str = '',
+    set4rem = new Set(),
+    arr1 = [];
+    arr.forEach(function(val){
+        set4rem.add(val);
+    })
+    arr1 = Array.from(set4rem);
     // console.log(arr1);
     arr1.forEach(function(val,ind){
         set.add(val.split('_')[0]);
@@ -163,6 +170,9 @@ function inputEvent(){
             flag = false;
         }
     }
+    document.querySelector('.dy_input').onfocus = function(){
+        this.value = '';
+    }
     // phone_btn 下一步
     // 初始化为空，所以提示信息都为真
     showI[0].flag = true;
@@ -284,8 +294,12 @@ document.querySelector('.phone_btn3').onclick = function(){
     // "http://localhost:8010/tuNiuProject/PHP/reg.php?user="
     var data = user + '_' + password;
     get("http://localhost:8010/tuNiuProject/PHP/reg.php?user="+data,function(res){
-        alert(res);
+        setCookie('get_pw',{
+            "name":user,
+            'pw':password
+        },0);
         user = password = '';
+        window.location.href = 'model.html'
     })
 }
 /////////////////////////////////////////////////////////////////////////
@@ -353,3 +367,39 @@ function phoneDivShow(){
 phoneDivShow();
 showContryInfo();
 inputEvent();
+function setCookie(_name, _value, _date, _path){
+	
+	// 支持所有类型的数据
+	var obj = {
+		"value" : _value	// 把cookie内容放到obj对象中
+	}
+	// 对象转字符串
+	var objstr = JSON.stringify(obj);
+	
+	var str = _name+"="+objstr;
+
+	if( _date ){	// 如果参数_date有设置的话，隐式转换为布尔值时，为真；如果参数_date没有设置，转换为布尔值时为假。
+		//判断第三个参数是过期时间还是有权范围
+		switch( typeof(_date) ){	// 这个参数的数据类型是什么
+			case "number":// 为过期时间
+				var d = new Date();
+				d.setDate( d.getDate()+_date );	// 过期时间为：当前的日期加几天
+				str += ";expires="+d.toGMTString();
+				break;
+			case "object":// 为过期时间
+				str += ";expires="+_date.toGMTString();
+				break;
+			case "string":// 为path
+				str += ";path="+_date;
+				break;
+		}
+	}
+	// 如果第四个参数存在，并且第三个参数不是字符串的话，根据第四个参数来设置path属性
+	// 原因：第三个参数如果是字符串的话，就以第三个参数设置path属性了
+	if( _path && typeof(_date)!="string" ){//setCookie("a", "123", "x", "abc")
+		str += ";path="+_path;
+	}
+	//console.log( str );
+	// 真正的设置cookie
+	document.cookie = str;
+}

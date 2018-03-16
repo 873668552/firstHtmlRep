@@ -1,0 +1,125 @@
+.bfc, #goods .goodRight > ul, #goods .goodRight > ol {
+  overflow: hidden;
+}
+
+#title {
+  background: #37c249;
+}
+
+#title > div {
+  width: 1200px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+#title > div > a {
+  display: block;
+  float: left;
+  padding: 12px 0px 0px 0px;
+}
+
+#goods {
+  background: #eee;
+}
+
+#goods .goods_con {
+  width: 1190px;
+  padding: 20px 0px 0px 0px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#goods .goodLeft {
+  width: 180px;
+  height: 500px;
+  background: #37c249;
+  float: left;
+}
+
+#goods .goodLeft > a {
+  display: block;
+  height: 30px;
+  background: #666;
+  font-size: 16px;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  margin: 20px 10px;
+}
+
+#goods .goodLeft > a :nth-child(1) {
+  margin-top: 0;
+}
+
+#goods .goodRight {
+  width: 990px;
+  float: right;
+}
+
+#goods .goodRight > ul {
+  width: 990px;
+  height: 59px;
+  background: white;
+}
+
+#goods .goodRight > ul > Li {
+  float: left;
+  padding: 16px 0px 16px 0px;
+  cursor: pointer;
+}
+
+#goods .goodRight > ul > Li > i {
+  display: block;
+  height: 24px;
+  padding: 0px 30px 0px 30px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+#goods .goodRight > ol {
+  padding-left: 20px;
+}
+
+#goods .goodRight > ol > li {
+  height: 52px;
+  font-size: 14px;
+  line-height: 53px;
+  color: #333;
+  float: left;
+}
+
+#goods .goodRight > ol > li:nth-child(1) {
+  width: 295px;
+}
+
+#goods .goodRight > ol > li:nth-child(2) {
+  width: 105px;
+}
+
+#goods .goodRight > ol > li:nth-child(3) {
+  width: 95px;
+}
+
+#goods .goodRight > ol > li:nth-child(4) {
+  width: 123px;
+}
+
+#goods .goodRight > ol > li:nth-child(5) {
+  width: 85px;
+}
+
+#goods .goodRight > ol > li:nth-child(6) {
+  width: 123px;
+}
+
+#goods .goodRight > ol > li:nth-child(7) {
+  width: 85px;
+}
+
+#goods .goodRight > div {
+  background: #fff;
+  padding: 10px 0px 10px 0px;
+}

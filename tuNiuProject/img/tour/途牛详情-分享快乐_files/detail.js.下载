@@ -1,0 +1,4 @@
+function test(){
+    console.log(  dateDiff( new Date(), new Date().setDate(new Date().getDate()+1), 'Y' ) );
+}
+test();

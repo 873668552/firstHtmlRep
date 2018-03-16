@@ -1,0 +1,12 @@
+{
+    "img1":["../img/tour/one1.jpeg",
+        "../img/tour/one2.jpeg",
+        "../img/tour/one3.jpeg",
+        "../img/tour/one4.jpeg",
+        "../img/tour/one5.jpeg"],
+    "img2":["../img/tour/two1.jpeg",
+        "../img/tour/two2.jpeg",
+        "../img/tour/two3.jpeg",
+        "../img/tour/two4.jpeg",
+        "../img/tour/two5.jpeg"]
+}

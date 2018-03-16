@@ -7,11 +7,64 @@
     @if($margin != 0){margin: $margin;}
     @if($pd != 0){padding: $pd;}
 }
+@mixin addWH($width:0,$height:0,$bg:0){
+    @if($bg !=0){background: $bg;}
+    @if($width != 0){width: #{$width}px;}
+    @if($height != 0){height: #{$height}px;}
+}
+@mixin addFont($size:0,$linehieght:0,$textalgn:0,$color:0){
+    @if($size != 0){font-size: $size;}
+    @if($linehieght != 0){line-height: $linehieght;}
+    @if($textalgn !=0){text-align: $textalgn;}
+    @if($color != 0){color: $color;}
+}
 // 评价
 .summerDiv{
-    @include addStyle(1190,52 ,0 ,0 ,'0 auto' ,0 );
+    @include addStyle(1190,52 ,0 ,0 ,0px auto ,0 );
+    >img{
+        float: left;
+        @include addWH(470,47 )
+    }
+    >div{
+        float: right;
+        @include addStyle(678,52 ,0 ,0 ,0px ,0 );
+        >li{
+            float: left;
+            margin: 15px;
+            @include addWH(1,18 ,red);
+            transform: rotateZ(30deg);
+        }
+        >div{
+            padding-right: 10px;
+            float: left;
+            >span:nth-child(1){
+                @include addFont(12px !important,52px,left,orange);
+            }
+            >i{
+                @include addFont(20px !important,20px,left,orange);
+            }
+        }
+        >.last_sum_Div{
+            line-height: 20px;height: 20px;margin-top: 15px;background: #d19c60;color: orange; font-size: 12px;
+        }
+    }
 }
-//
+//轮播。。。
 #ban{
-    // @include addStyle(0, , , , , )
+    @include addStyle(1190,371 ,0 ,0 ,0px auto ,0 );
+    >ul{
+        float: left;
+        padding: 10px 0 0 10px;
+        @include addWH(190,361, #2f3437);
+    }
+    >div{
+        float: right;
+        @include addWH(990,371,white);
+    }
 }
+// 商品展示
+#content{
+    overflow: hidden; background: url(..) no-repeat;
+    @include addStyle(1190,0 ,0 ,0 ,0px auto ,0 );
+}
+

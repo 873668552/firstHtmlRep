@@ -1,0 +1,145 @@
+@mixin addwH($w:0,$h:0,$bg:0){
+    @if($w != 0){
+        width: #{$w}px;
+    }
+    @if($h != 0){
+        height: #{$h}px;
+    }
+    @if($bg != 0){
+        background: $bg;
+    }
+}
+@mixin addMargin($t:0,$b:0,$l:0,$r:0){
+    margin: #{$t}px #{$l}px #{$b}px #{$r}px ;
+}
+@mixin addPadding($t:0,$b:0,$l:0,$r:0){
+    padding: #{$t}px #{$l}px #{$b}px #{$r}px ;
+}
+@mixin addFont($size:0,$line:0,$color:0){
+    @if($size != 0){font-size: #{$size}px;}
+    @if($line != 0){line-height: #{$line}px;}
+    @if($color != 0){color: $color;}
+}
+.bfc{
+    overflow: hidden;
+}
+// title
+
+#title{
+    @include addwH(0, 0, #37c249);
+    >div{
+        @include addwH(1200,60  );
+        margin: 0 auto;
+        >a{
+            display: block;
+            float: left;
+            @include addPadding(12 );
+        }
+    }
+}
+#goods{
+    background: #eee;
+    
+    .goods_con{
+        @include addwH(1190, 0);
+        @include addPadding(20);
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .goodLeft{
+        @include addwH(180,500,#37c249);
+        float: left;
+        >a{
+            display: block;
+            @include addwH(0,30 ,#666);
+            @include addFont(16,30,#fff);
+            text-align: center;
+            margin: 20px 10px;
+        }
+        >a :nth-child(1){
+            margin-top: 0;
+        }
+    }
+    .goodRight{
+        @include addwH(990);
+        float: right;
+        >ul{
+            @extend .bfc;
+            @include addwH(990,59,white);
+            >Li{
+                float: left;
+                @include addPadding(16, 16);
+                // @include addwH(125, 24 );
+                cursor: pointer;
+                >i{
+                    display: block;
+                    @include addwH(0,24);
+                    @include addPadding(0,0,30, 30);
+                    @include addFont(18,24 ,#666 );
+                    text-align: center;
+                    border-right: 1px solid #dedede;
+                }
+            }
+            // >li:hover i{
+            //     color: #37c249;
+            // }
+        }
+        >ol{
+            @extend .bfc;
+            padding-left: 20px;
+            >li{
+                @include addwH(0,52  );
+                @include addFont(14,53,#333);
+                float: left;
+            }
+            @for $i from 1 to 8{
+                @if($i == 1){
+                   >li:nth-child(#{$i}){
+                    @include addwH(295);
+                   }
+                    
+                }
+                @if($i == 2){
+                   >li:nth-child(#{$i}){
+                    @include addwH(105);
+                   }
+                    
+                }
+                @if($i == 3){
+                   >li:nth-child(#{$i}){
+                    @include addwH(95);
+                   }
+                    
+                }
+                @if($i == 4){
+                   >li:nth-child(#{$i}){
+                    @include addwH(123);
+                   }
+                    
+                }
+                @if($i == 5){
+                   >li:nth-child(#{$i}){
+                    @include addwH(85);
+                   }
+                    
+                }
+                @if($i == 6){
+                   >li:nth-child(#{$i}){
+                    @include addwH(123);
+                   }
+                    
+                }
+                @if($i == 7){
+                   >li:nth-child(#{$i}){
+                    @include addwH(85);
+                   }
+                    
+                }
+            }
+        }
+        >div{
+            @include addwH(0,0 ,#fff );
+            @include addPadding(10,10);
+        }
+    }
+}

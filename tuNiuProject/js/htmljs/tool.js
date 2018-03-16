@@ -1,0 +1,197 @@
+
+function startMove(elem, json, cb){
+	clearInterval(elem.timer);	// 无论之前的运动是否执行完，把之前的运动结束掉
+	elem.timer = setInterval(function(){
+		// 所有的属性是不是都执行到了终点
+		var flag = true;	// 假设所有的属性都已经到达了终点
+		// 对json进行循环，因为json保存的是运动时，所涉及到的所有的属性
+		// json = {"width":500}
+		for( var attr in json ){	// attr="width"
+			// 起点（获取被操作的元素的当前属性值）
+			var v = getStyle(elem, attr);
+			// 判断是否为透明度运动
+			if( attr == "opacity" ){
+				v = Math.round(v*100);
+			}else{
+				v = parseInt(v);
+			}
+			// 终点（startMove函数中的一个参数）
+			var target = json[attr];	// json["width"]==500
+			// 终点减起点的间距
+			var dist = target-v;			
+			// 取其六分之一
+			var speed = dist/6;	// 即速度，也可以理解成是步长值，元素每一次更新的值
+			
+			if(speed>0){	// 从左到右运动时，最后的几个数，可能是0.5  0.4等等之类的这种值，所以需要向上取整，得到+1
+				speed = Math.ceil(speed);
+			}else{		// 从右到左，最后的几个数，可能是-0.5  -0.4等等之类的这种值，所以需要向下取整，得到-1
+				speed = Math.floor(speed);
+			}
+			//
+			// 重新给元素定位
+			if( attr == "opacity" ){
+				elem.style[attr] = (v+speed)/100;
+				if(/MSIE/.test(navigator.userAgent)){// 如果当前浏览器为IE浏览器
+					elem.style.filter = "alpha(opacity="+(v+speed)+")";// 用IE兼容的写法，实现透明度
+				}
+			}else{
+				elem.style[attr] = v+speed+"px";
+			}
+			// 关闭定时器
+			//if( v == target ){	// 如果元素已经到达目标点，则停止定时器
+			//	clearInterval(elem.timer);
+			//}
+			// 判断当前属性是否走到了终点
+			if( v != target ){
+				flag = false;	// 只要有一个属性没有走到终点，flag就为false
+			}
+		}
+		// 如果所有的属性都达到了终点，再停止定时器
+		if(flag){
+			clearInterval(elem.timer);
+			// 所有属性，都执行到终点之后，再触发回调函数
+			// 如果存在第三个参数（回调函数）
+			if( cb ){
+				cb();
+			}
+		}
+	}, 50);
+}
+function getStyle( elem, attr ){
+	if( window.getComputedStyle ){	// W3C标准：获取非行间样式
+		return getComputedStyle(elem, null)[attr];
+	}else{							// IE标准：获取非行间样式
+		return elem.currentStyle[attr];
+	}
+}
+
+function setCookie(_name, _value, _date, _path){
+	
+	// 支持所有类型的数据
+	var obj = {
+		"value" : _value	// 把cookie内容放到obj对象中
+	}
+	// 对象转字符串
+	var objstr = JSON.stringify(obj);
+	
+	var str = _name+"="+objstr;
+
+	if( _date ){	// 如果参数_date有设置的话，隐式转换为布尔值时，为真；如果参数_date没有设置，转换为布尔值时为假。
+		//判断第三个参数是过期时间还是有权范围
+		switch( typeof(_date) ){	// 这个参数的数据类型是什么
+			case "number":// 为过期时间
+				var d = new Date();
+				d.setDate( d.getDate()+_date );	// 过期时间为：当前的日期加几天
+				str += ";expires="+d.toGMTString();
+				break;
+			case "object":// 为过期时间
+				str += ";expires="+_date.toGMTString();
+				break;
+			case "string":// 为path
+				str += ";path="+_date;
+				break;
+		}
+	}
+	// 如果第四个参数存在，并且第三个参数不是字符串的话，根据第四个参数来设置path属性
+	// 原因：第三个参数如果是字符串的话，就以第三个参数设置path属性了
+	if( _path && typeof(_date)!="string" ){//setCookie("a", "123", "x", "abc")
+		str += ";path="+_path;
+	}
+	//console.log( str );
+	// 真正的设置cookie
+	document.cookie = str;
+}
+
+function removeCookie(_name, _path){
+	if(_path){
+		setCookie(_name, "", -1, _path);
+	}else{
+		setCookie(_name, "", -1);
+	}
+}
+
+
+function getCookie(_name){
+	// 当前文件所能求得的所有的cookie找到
+	// 多个cookie之间，是用分号空格分隔的
+	var str = document.cookie;	// "a=1; b=2"	
+	// 根据分号空格，将str拆分成数组
+	var arr = str.split("; ");	// ["a={value:['hello']}", "b=2"]
+	// 对数组进行循环
+	for( var i=0,len=arr.length; i<len; i++ ){
+		var txt = arr[i];// 当i=0时，"a=1"；当i=1时，"b=2"
+		// 对"a=1"这种数据，进行拆分，等号左边为cookie名称，等号右边为cookie内容
+		var col = txt.split("=");	// col = ["a", "{value:['hello']}"]
+		if( col[0] == _name ){	// 在所有的cookie中，找到了我们想要的cookie了
+			//return col[1];
+			var objstr = col[1];
+			var obj =JSON.parse(objstr);// 把json字符串转为json对象
+			return obj.value;
+		}
+	}
+	
+	//console.log( arr );
+}
+
+
+function getCookieAll(reg, fn){
+	var result = [];
+	// 当前文件所能求得的所有的cookie找到
+	// 多个cookie之间，是用分号空格分隔的
+	var str = document.cookie;	// "a=1; b=2"	
+	// 根据分号空格，将str拆分成数组
+	var arr = str.split("; ");	// ["a={value:['hello']}", "b=2"]
+	// 对数组进行循环
+	for( var i=0,len=arr.length; i<len; i++ ){
+		var txt = arr[i];// 当i=0时，"a=1"；当i=1时，"b=2"
+		// 对"a=1"这种数据，进行拆分，等号左边为cookie名称，等号右边为cookie内容
+		var col = txt.split("=");	// col = ["a", "{value:['hello']}"]
+		if( reg.test(col[0]) ){	// 在所有的cookie中，找到了我们想要的cookie了
+			//return col[1];
+			var objstr = col[1];
+			var obj =JSON.parse(objstr);// 把json字符串转为json对象
+			//return obj.value;
+			result.push({
+				"cookieName" : col[0],
+				"cookieValue" : obj.value
+			});
+			// 执行回调函数
+			if( fn ){
+				fn( col[0], obj.value );
+			}
+		}
+	}	
+	return result;
+}
+// 时间间隔
+function dateDiff( d1, d2, unit ){
+	d1 = new Date(d1);
+	if( d1.toString()=="Invalid Date" ){
+		return "错误：请输入有效的日期"
+	}
+	
+	d2 = new Date(d2);
+	if( d2.toString()=="Invalid Date" ){
+		//throw( new Error("错误：请输入有效的日期") )	// 在控制台上抛一个错误出来
+		return "错误：请输入有效的日期"
+	}
+	var dist = d2.getTime() - d1.getTime();	// 时间间隔(单位是毫秒)
+	
+	switch(unit){
+		case "Y":
+			return d2.getFullYear()-d1.getFullYear();
+		case "M":
+			return (d2.getFullYear()-d1.getFullYear())*12+(d2.getMonth()-d1.getMonth());
+		case "D":
+			return dist/1000/60/60/24;
+		case "h":
+			return dist/1000/60/60;
+		case "m":
+			return dist/1000/60;
+		case "s":
+			return dist/1000;	
+		case "ms":
+			return dist;
+	}
+	
+}

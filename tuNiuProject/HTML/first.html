@@ -7,8 +7,73 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<script src="../js/htmljs/cookie.js"></script>
+<script>
+function getCookie(_name){
+	// 当前文件所能求得的所有的cookie找到
+	// 多个cookie之间，是用分号空格分隔的
+	var str = document.cookie;	// "a=1; b=2"	
+	// 根据分号空格，将str拆分成数组
+	var arr = str.split("; ");	// ["a={value:['hello']}", "b=2"]
+	// 对数组进行循环
+	for( var i=0,len=arr.length; i<len; i++ ){
+		var txt = arr[i];// 当i=0时，"a=1"；当i=1时，"b=2"
+		// 对"a=1"这种数据，进行拆分，等号左边为cookie名称，等号右边为cookie内容
+		var col = txt.split("=");	// col = ["a", "{value:['hello']}"]
+		if( col[0] == _name ){	// 在所有的cookie中，找到了我们想要的cookie了
+			//return col[1];
+			var objstr = col[1];
+			var obj =JSON.parse(objstr);// 把json字符串转为json对象
+			return obj.value;
+		}
+	}
+	
+	//console.log( arr );
+}
+
+    
+        var getPW = getCookie('get_pw'),// 其他登录
+        twoWeek = getCookie('two_pw')// 两周登录
+        if(getPW || twoWeek){
+            // alert(123)
+            // setCookie('g' + showInfo.cookie,obj);
+            window.location.href = 'total.html';
+        }else{
+            // alert('没有登录');
+            localStorage.setItem('flag',true);
+            window.location.href = 'login.html';
+        }
+</script>
 
 <body>
+    <div class="slidegroups an_mo slide-group current" data-groupindex="0" style="float: left; width: 990px; height: 371px; position: relative; cursor: pointer;">
+        <a class="img-wrapper tall" href="http://www.tuniu.com/zt/disney/" target="_blank" m="点击__轮播图组1_轮播组图1_1_上海迪士尼" style="display: block; float: left; position: absolute; right: 0px; top: 0px; opacity: 1;">
+            <img class="tall" data-link="http://www.tuniu.com/zt/disney/" src="https://m1.tuniucdn.com/fb2/t1/G5/M00/82/8C/Cii-tFqfvBWINzGkAAHPSlhX3g8AAD-hALEJvkAAc9i68.jpeg"
+                data-src="https://m1.tuniucdn.com/fb2/t1/G5/M00/82/8C/Cii-tFqfvBWINzGkAAHPSlhX3g8AAD-hALEJvkAAc9i68.jpeg" alt="上海迪士尼,tall"
+                data-ga="点击__轮播图组1_轮播组图1_1_上海迪士尼" style="display: inline;">
+        </a>
+        <a class="img-wrapper " href="http://www.tuniu.com/szt/anji/" target="_blank" m="点击__轮播图组1_轮播组图1_2_安吉大年初一" style="display: block; float: left; position: absolute; left: 495px; top: 0px; opacity: 1;">
+            <img class="" data-link="http://www.tuniu.com/szt/anji/" src="https://m.tuniucdn.com/fb2/t1/G2/M00/94/E4/Cii-T1hmMCiIZlJ-AADC0A9bASoAAGMdwKYJCMAAMLo69.jpeg"
+                data-src="https://m.tuniucdn.com/fb2/t1/G2/M00/94/E4/Cii-T1hmMCiIZlJ-AADC0A9bASoAAGMdwKYJCMAAMLo69.jpeg" alt="安吉大年初一,"
+                data-ga="点击__轮播图组1_轮播组图1_2_安吉大年初一" style="display: inline;">
+        </a>
+        <a class="img-wrapper wide" href="http://www.tuniu.com/szt/zijiacuofengyou/" target="_blank" m="点击__轮播图组1_轮播组图1_3_错峰游" style="display: block; float: left; position: absolute; left: 0px; top: 0px; opacity: 1;">
+            <img class="wide" data-link="http://www.tuniu.com/szt/zijiacuofengyou/" src="https://m3.tuniucdn.com/fb2/t1/G5/M00/5D/FF/Cii-tFp8CxOIJnacAAE1PjJVK0MAADRVQEvaPkAATVW29.jpeg"
+                data-src="https://m3.tuniucdn.com/fb2/t1/G5/M00/5D/FF/Cii-tFp8CxOIJnacAAE1PjJVK0MAADRVQEvaPkAATVW29.jpeg" alt="错峰游,wide"
+                data-ga="点击__轮播图组1_轮播组图1_3_错峰游" style="display: inline;">
+        </a>
+        <a class="img-wrapper " href="http://www.tuniu.com/g2017705/drive-sh-0/" target="_blank" m="点击__轮播图组1_轮播组图1_4_拈花湾" style="display: block; float: left; position: absolute; left: 0px; bottom: 0px; opacity: 1;">
+            <img class="" data-link="http://www.tuniu.com/g2017705/drive-sh-0/" src="https://m2.tuniucdn.com/fb2/t1/G5/M00/5E/00/Cii-tFp8C_6IeO4hAABcmCRDgo0AADRWALM8BAAAFyw17.jpeg"
+                data-src="https://m2.tuniucdn.com/fb2/t1/G5/M00/5E/00/Cii-tFp8C_6IeO4hAABcmCRDgo0AADRWALM8BAAAFyw17.jpeg" alt="拈花湾,"
+                data-ga="点击__轮播图组1_轮播组图1_4_拈花湾" style="display: inline;">
+        </a>
+        <a class="img-wrapper wide" href="http://s.tuniu.com/search_complex/drive-all-0-%E5%A4%A9%E7%9B%AE%E6%B9%96%E6%98%A5%E6%B8%B8%E5%AD%A3/"
+            target="_blank" m="点击__轮播图组1_轮播组图1_5_天目湖春游季" style="display: block; float: left; position: absolute; left: 248px; bottom: 0px; opacity: 1;">
+            <img class="wide" data-link="http://s.tuniu.com/search_complex/drive-all-0-%E5%A4%A9%E7%9B%AE%E6%B9%96%E6%98%A5%E6%B8%B8%E5%AD%A3/"
+                src="https://m.tuniucdn.com/fb2/t1/G5/M00/7A/64/Cii-slqXw-mIXcctAAC3JBbXh3EAADyEwNJRwcAALc880.jpeg" data-src="https://m.tuniucdn.com/fb2/t1/G5/M00/7A/64/Cii-slqXw-mIXcctAAC3JBbXh3EAADyEwNJRwcAALc880.jpeg"
+                alt="天目湖春游季,wide" data-ga="点击__轮播图组1_轮播组图1_5_天目湖春游季" style="display: inline;">
+        </a>
+    </div>
     <span class="txt-m identify_con">
         <input type="text" class="identify_code txt_grey" id="identify" name="identify" placeholder="不区分大小写" maxlength="4" tabindex="2">
         <img width="81" height="25" style="cursor: pointer;" alt="如验证码无法辨别，点击即可刷新。" id="identify_img" src="/ajax/captcha/v/1447825328.4607                                        "

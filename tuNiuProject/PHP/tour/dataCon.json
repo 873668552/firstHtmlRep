@@ -1,0 +1,26 @@
+{
+    "data1":{
+        "title":["三亚","东北","河南"],
+        "tar":"境外旅游",
+        "price":[1000,2000,3000],
+        "left":["马来西亚","乌龙木齐","嵩山少林","济南","泰山","云南"],
+        "img":"../img/tour/con1.png",
+        "good":["../img/tour/good1.jpg","../img/tour/good2.jpg","../img/tour/good3.jpg"]
+    },
+    "data2":{
+        "title":["三亚","东北","河南"],
+        "tar":"境内旅游",
+        "price":[1000,2000,3000],
+        "left":["马来西亚","乌龙木齐","嵩山少林","济南","泰山","云南"],
+        "img":"../img/tour/con1.png",
+        "good":["../img/tour/good1.jpg","../img/tour/good2.jpg","../img/tour/good3.jpg"]
+    },
+    "data3":{
+        "title":["三亚","东北","河南"],
+        "tar":"知名旅游",
+        "price":[1000,2000,3000],
+        "left":["马来西亚","乌龙木齐","嵩山少林","济南","泰山","云南"],
+        "img":"../img/tour/con1.png",
+        "good":["../img/tour/good1.jpg","../img/tour/good2.jpg","../img/tour/good3.jpg"]
+    }
+}

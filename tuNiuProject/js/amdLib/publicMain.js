@@ -1,5 +1,6 @@
 
 require.config({
+	///// 引用路径
 	'paths' : {
 		'jquery' : 'jq',
 		'base' : '../cmdLib/public',
@@ -29,6 +30,7 @@ require(['jquery','base','header','jsonp','cmdCookie'],function(JQ,base,header,j
 	// 登录ul处理
 	function loginUL(){
 		// 1 获取cookie  navTop_left
+		
 
 		var getPW = cookieObj.getCookie('get_pw'),// 其他登录
 		twoWeek = cookieObj.getCookie('two_pw'),// 两周登录
@@ -51,6 +53,7 @@ require(['jquery','base','header','jsonp','cmdCookie'],function(JQ,base,header,j
 			);
 			
 		}
+
 	}
 
 	/// 2头部搜索函数
@@ -185,6 +188,13 @@ require(['jquery','base','header','jsonp','cmdCookie'],function(JQ,base,header,j
 				})
 			})
 		})
+		///////////////////////// 商品展示区////
+		// 轮播图部分
+		obj.addCircle(document.querySelector('#ban>div'),'http://localhost:8010/tuNiuProject/PHP/tour/dataCircle.json');
+		obj.addli(document.querySelector('#ban>ul'),'http://localhost:8010/tuNiuProject/PHP/tour/data.json');
+		// 商品展示区加载内容
+		obj.addContent(document.querySelector('#content'),'http://localhost:8010/tuNiuProject/PHP/tour/dataCon.json');
+	
 	})
 	// floorDiv_body_con_show_right 展示区加载内容函数
 	function addRightInfo(url,fn){

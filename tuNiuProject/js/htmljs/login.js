@@ -116,7 +116,7 @@ function getDiv(){
 }
 function decodeJsonStr(res){
     // console.log(res);
-    alert(res);
+    // alert(res);
     var arr1 = res.split(','),key=[],valueArr=[],
         set = new Set();
         // console.log(arr1);
@@ -142,8 +142,16 @@ function decodeJsonStr(res){
                         'pw':valueArr[i]
                     },0);
                 }
-
-                window.location.href = 'model.html';
+                // 判断向那个页面跳转
+                if( localStorage.getItem('flag') == 'true' ){
+                    // alert('个人页面');
+                    localStorage.setItem('flag',false);
+                    window.location.href = 'total.html';
+                }else{
+                    // alert('主页面')
+                    localStorage.setItem('flag',false);
+                    window.location.href = 'model.html';
+                }
                 return;
             }else if(valueArr[i] != document.querySelector('.pw_inp').value && 
             key[i] == document.querySelector('.name_inp').value){

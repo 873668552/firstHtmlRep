@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>途牛详情-分享快乐</title>
+
+    <link rel="icon" href="../img/tuniu.ico" type="image/x-icon"/>  
+    <link rel="shortcut icon" href="../img/tuniu.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/detail.min.css">
+    <link rel="stylesheet" href="../css/font/iconfont.css">
+    <!-- 公共样式 -->
+    <script src="../js/amdLib/require.js" data-main = '../js/amdLib/sameMain.js' defer async="true"></script>
+    <!-- 私有js -->
+    <script src="../js/htmljs/tool.js"></script>
+    <script src="../js/htmljs/detail.js" defer async="async"></script>
+</head>
+<body>
+    
+    <!-- 1 导航 -->
+    <div id="navDiv">
+        <div class="navDiv_top">
+            <div class="navTop">
+                <ul class="navTop_left">
+                    <li><a href="login.html">登录</a> |</li>
+                    <li><a href="reg.html">注册</a></li>
+                    <li><a href="first.html"><img src="http://img4.tuniucdn.com/img/2017020818/common/registgift.gif" alt=""></a></li>
+                </ul>
+                <ul class="navTop_right">
+                    <li class=""><a href="first.html">途牛商城</a></li>
+                    <li class=""><a href="first.html">严选商城</a></li>
+                    <li class="navTop_rightli"><a href="first.html">企业频道</a></li>
+                    <li class="navTop_rightli"><a href="first.html">会员俱乐部</a></li>
+                    <li class="myShop spanRate"><a href="first.html">我的订单</a><span class="smallSpan"></span><div class="myShop_div"></div></li>
+                    <li class="webMap spanRate"><a href="first.html">网站地图</a><span class="smallSpan"></span><div class="myMap_div"></div></li>
+                    <li><a class="navTop_rightA iconfont" href="first.html">&#xe641;</a></a>
+                    <li><a class="navTop_rightA iconfont" href="first.html">&#xe641;</a><div class="navTop_rightIphone"></div></li>
+                    <li><a class="navTop_rightA iconfont wechatLi" href="first.html">&#xe641;</a><div class="navTop_rightWechat"><img src="http://m.tuniucdn.com/fb2/t1/G4/M00/65/10/Cii_J1nIdsOIf-NaAACdnbjvt44AABkXgDIc_sAAJ21864.png"></div></li>
+                    <li><a class="navTop_rightA iconfont" href="first.html">&#xe641;</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="navMid">
+                
+            <div class="navMid_div">
+                <div class="navMid_divFirst">
+                    <img src="../img/icon.png" class="iconImg" alt="">
+                    <div class="navMid_topDiv"><a href="first.html">北京站</a><span class="smallSpan navMid_span"></span><div class="navMid_topDiv_div"></div></div>
+                    <div class="navMid_bottomDiv"><img src="http://img2.tuniucdn.com/img/20141206/header/local_branch.png" alt=""></div>
+                </div>
+                
+                <div class="navMid_divNext">
+                        
+                    <form action="">
+                            
+                        <!-- 所有商品 -->
+                        <div class="navMid_divNextShop">
+                            <p>全部商品 
+                                <span class="smallSpan allShopSpan"></span>
+                                <div class="navMid_divNextAllShop"></div>
+                            </p>
+                        </div>
+                        <!-- search -->
+                        
+                        <div class="navMid_divNextP">
+                            <ul class="search_ul">
+                                <li>河南</li>
+                                <li>郑州</li>
+                                <li>许昌</li>
+                                <input id="search" type="text" >
+                                
+                            </ul>
+                        </div>
+                        <!-- 图片 -->
+                        <div class="navMid_divNextIcon"><a id="searchA" href="first.html"><img src="../img/search.png" alt=""><span class="searchSpan"></span></a></div>
+                    </form>
+                    
+                </div>
+
+                <div class="navMid_divLast">
+                    <div class="navMid_divLastHighSearch">高级搜索<span class="smallSpan highSearch"></span></div>
+                    <div class="navMid_divLastSericon">
+                        <li>
+                            <a class="divLast_a" href="first.html">
+                                <img src="../img/top/ej.png" alt="">
+                                <span>
+                                    欢迎拨打<br>
+                                    <i class="iphone_server">123-321</i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <img src="../img/top/ej.png" alt="">
+                            <p>我们的质量</p>
+                            <p>亚洲最好最棒</p>
+                        </li>
+                        <li><img src="../img/top/lin.png" alt=""></li>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="showUlDiv"><ul class="showUl"></ul></div>
+        <div class="navLast">
+           <ul class="navLast_ul">
+               <li class="current"><a class="firstA" href="model.html">首页 </a></li>
+               <li><a href="shops.html">跟团游 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">自由行 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">游轮 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">酒+景 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">机票 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">火车票 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">汽车票 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">门票 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">特卖 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">主题游 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">出游服务 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">定服务 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">金融 <i class="nav_right"></i></a></li>
+               <li><a href="first.html">攻略 <i class="nav_right"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 内容部分 -->
+    <div id="conDiv">
+        <div>
+            <a href="">国内游玩 ></a>
+            <a href="">国外游玩 ></a>
+            <a href="">三亚 ></a>
+            <a href="">开封梦回千年 ></a>
+            <a href="">济南趵突泉 ></a>
+        </div>
+        <div>
+            <p>[五一]<海南三亚-蜈支洲-亚龙湾双飞5日游>无敌180度海景房连住，纯玩0购物，蜈支洲VIP通道免排队，可升五星天</p>
+            <p>
+                <span>通海景，爆款14万人出游</span>
+                <i class="iconfont">&#xe628;</i>
+                <i class="iconfont">&#xe628;</i>
+                <i class="iconfont">&#xe628;</i>
+                <i class="iconfont">&#xe628;</i>
+                <i class="iconfont">&#xe628;</i>
+                <i class="iconfont">&#xe628;</i>
+                <a href="first.html">牛人专线</a>
+            </p>
+            <div>
+                <span>旅游团 </span>
+                <span> 编号:12345678</span>
+                <span> 本产品由北京途牛国际旅行社有限公司及具有资质的合作旅行社提供相关服务</span>
+                <div>
+                    <a href="first.html">国内旅游订购须知 </a>|
+                    <a href="first.html">网上订购须知</a>
+                </div>
+            </div>
+        </div>
+        <div>
+
+            <!-- 左边内容块 -->
+            <div>
+                
+                <!-- 轮播展示 -->
+                <div>
+                    <ol>
+                        <li><img src="../img/detail/5.jpg" alt=""></li>
+                        <li><img src="../img/detail/1.jpg" alt=""></li>
+                        <li><img src="../img/detail/2.jpg" alt=""></li>
+                    </ol>
+                </div>
+
+                <!-- 左边按钮 -->
+                <div class="iconfont">&#xe693;</div>
+                <!-- 右边按钮 -->
+                <div class="iconfont">&#xe694;</div>
+                <div class="ul_div">
+                    <ul>
+                        <li><img src="../img/detail/1.jpg" alt=""></li>
+                        <li><img src="../img/detail/2.jpg" alt=""></li>
+                        <li><img src="../img/detail/3.jpg" alt=""></li>
+                        <li><img src="../img/detail/4.jpg" alt=""></li>
+                        <li><img src="../img/detail/5.jpg" alt=""></li>
+                    </ul>
+                </div>
+                <!-- 遮罩 -->
+                <div class="border_div"></div>
+                <!-- 商品 -->
+                <div class="goodDiv">
+                    <ul>
+                    </ul>
+                    <ul ></ul>
+                    <ol style="display:block"></ol>
+                    <ol style="display:none"></ol>
+                    <ol style="display:none"></ol>
+                </div>
+                <!-- 商品展示 -->
+                <div>
+                    
+                </div>
+                <p>更多优化尽在途牛。。。行动吧</p>
+            </div>
+
+            <!-- 右边内容块 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <!-- 购物车 -->
+                <div>
+                    <p>
+                        <span>出发城市:</span><input class="cityInp" type="text" value="北京">
+                    </p>
+                    <div>选择城市<span class="iconfont changeCity">&#xe6e1;</span>
+                        <div class="cityDiv" style="display:none">
+                            <div></div>
+                            <div></div>
+                            <ul style="display:block">
+                                <li>CITYTOUR</li>
+                                <li>NATION</li>
+                                <li>OTHER</li>
+                            </ul>
+                            <ol class="cityOl" style="display:block">
+                                <li>包头</li>
+                                <li>包头</li>
+                                <li>包头</li>
+                                <li>包头</li>
+                            </ol>
+                            <ol class="cityOl" style="display:none">
+                                <li>包头</li>
+                                <li>安徽</li>
+                                <li>新疆</li>
+                                <li>哈尔冰</li>
+                            </ol>
+                            <ol class="cityOl" style="display:none">
+                                <li>包头</li>
+                                <li>包头</li>
+                                <li>安徽</li>
+                                <li>新疆</li>
+                                <li>哈尔冰</li>
+                                <li>包头</li>
+                                <li>安徽</li>
+                                <li>新疆</li>
+                                <li>哈尔冰</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <p>
+                        <span>商品:</span><i class="show_I">掏出宝贝相互伤害了</i>
+                    </p>
+                    <dd>
+                        <p>添加商品:</p>
+                        <!-- <p><span>+</span> <input type="text"><span>-</span><i>成人</i></p>
+                        <p><span>+</span> <input type="text"><span>-</span><i>儿童</i></p> -->
+                        <p>
+                            <input class="fa_btn_jia" type="button" value="+">
+                            <input class="pa_inp" type="text" min="1" value="1" style="text-align:center; -webkit-appearance:none;-moz-appearance:textfield">
+                            <input class="fa_btn_jian" type="button" value="-">
+                        </p>
+                        <p>成人</p>
+                        <p>
+                            <input class="son_btn_jia" type="button" value="+">
+                            <input class="son_inp" type="text" min="0" value="0" style="text-align:center; -webkit-appearance:none;-moz-appearance:textfield">
+                            <input class="son_btn_jian" type="button" value="-">
+                        </p>
+                        <p>儿童</p>
+                    </dd>
+                    <input class="setGood" type="button" value="提交">
+                    <ul class="goog_ul">
+                        <li><span>商品：</span></li>
+                        <li class="detail_li">*****</li>
+                        <li class="total_i"></li>
+                    </ul>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- 2 末尾 -->
+    <!-- 01 -->
+    <div id="lastSer1">
+        <ul>
+            <li>
+                <span class="iconfont">&#xe648;</span>
+                <dl>
+                    <dt>去旅游</dt>
+                    <dd>
+                        <p><a href="first.html">途牛跟团</a><a href="first.html">酒店</a><a href="first.html">风景点统计</a></p>
+                        <p><a href="first.html">攻略</a><a href="first.html">打车</a><a href="first.html">途牛地图</a></p>
+                        <p><a href="first.html">个人分享</a><a href="first.html">途牛跟团</a><a href="first.html">休息</a></p>
+                        <p><a href="first.html">途牛跟团</a><a href="first.html">酒店</a><a href="first.html">风景点统计</a></p>
+                        <p><a href="first.html">攻略</a><a href="first.html">途牛跟团</a><a href="first.html">途牛地图</a></p>
+                        <p><a href="first.html">个人分享</a><a href="first.html">料理</a><a href="first.html">休息</a></p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <span class="iconfont">&#xe62c;</span>
+                <dl>
+                    <dt>寻优惠</dt>
+                    <dd>
+                        <p><a href="first.html">途牛跟团</a></p>
+                        <p><a href="first.html">小说</a></p>
+                        <p><a href="first.html">日常漫步</a></p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <span class="iconfont">&#xe79e;</span>
+                <dl>
+                    <dt>看攻略</dt>
+                    <dd>
+                        <p><a href="first.html">途牛跟团</a></p>
+                        <p><a href="first.html">途牛跟团</a></p>
+                        <p><a href="first.html">途牛跟团</a></p>
+                        <p><a href="first.html">途牛跟团</a></p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <span class="iconfont">&#xe6e1;</span>
+                <dl>
+                    <dt>查服务</dt>
+                    <dd>
+                        <p><a href="first.html">途牛跟团</a></p>
+                        <p><a href="first.html">途牛跟团</a></p>
+                        <p><a href="first.html">途牛跟团</a></p>
+                        <p><a href="first.html">途牛跟团</a></p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <span class="iconfont">&#xe6a5;</span>
+                <dl>
+                    <dt>下APP</dt>
+                    <dd>
+                        <p><a href="first.html">扫码下载</a></p>
+                        <img src="http://m.tuniucdn.com/fb2/t1/G2/M00/2E/C2/Cii-T1i5FDyICo_LAAAiRTIzF6gAAH84QOOvGEAACJd508.png" alt="">
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <!-- 02 -->
+    <div id="lastSer2">
+        <div>
+            <a href="first.html">
+                <span>热线电话(免费拨打无费用)</span>
+                <span>no-repeat -23234</span>
+            </a>
+        </div>
+    </div>
+    <!-- 03 -->
+    <div id="lastSer3">
+        <ul>
+            <li><a href="first.html"><img src="" imgSrc='http://images.tuniucdn.com/u/mainpic/footer/tn_footer_042.jpg' alt=""></a></li>
+            <li><a href="first.html"><img src="" imgSrc='http://images.tuniucdn.com/u/mainpic/footer/tn_footer_06.jpg' alt=""></a></li>
+            <li><a href="first.html"><img src="" imgSrc='http://m.tuniucdn.com/fb2/t1/G1/M00/B2/6E/Cii9EFaWDQ2IFdVUAAAaUoTPAnAAABcxwP_x9YAABpq60.jpeg' alt=""></a></li>
+            <li><a href="first.html"><img src="" imgSrc='https://m4.tuniucdn.com/fb2/t1/G3/M00/89/C0/Cii_LlmSlsaICijDAABiOObnKkEAAHXXABQ4z0AAGJQ76.jpeg' alt=""></a></li>
+        </ul>
+    </div>
+    <!-- 04 牛人在线-->
+    <div id="lastSer4">
+        <a href="first.html" target="_blank" style="display:block">
+            <img src="../img/last/ser3.jpeg" alt="">
+        </a>
+    </div>
+    <!-- 05 客服标题栏-->
+    <div id="lastSer5">
+        <p>途牛客服中心位于南京市 来电显示为 025-86859999 、025-86259999 、025-85029999 、025-69609987 、025-69609986 、025-57629999 或 025-52339999</p>
+        <p>北京途牛国际旅行社有限公司，旅行社业务经营许可证编号：L-BJ-CJ00144　　上海途牛国际旅行社有限公司，旅行社业务经营许可证编号：L-SH-CJ00107    </p>
+        <p id='lastSer5_linkp1' class="lastSet_P">
+            <a href="http://www.tuniu.com/corp/aboutus.shtml" target="_blank" rel="nofollow">关于我们</a>
+            <a rel="nofollow" href="http://ir.tuniu.com" target="_blank">Investor Relations</a>
+            <a href="http://www.tuniu.com/corp/contactus.shtml" target="_blank" rel="nofollow">联系我们</a>
+            <a href="http://www.tuniu.com/corp/advise.shtml" target="_blank" rel="nofollow">投诉建议</a>
+            <a rel="nofollow" href="http://www.tuniu.com/corp/advertising.shtml" target="_blank">广告服务</a>
+            <a rel="nofollow" href="http://www.tuniu.com/giftcard/" target="_blank">旅游券</a>
+            <a rel="nofollow" href="http://tuniu.zhiye.com/" target="_blank" style="color: red;">途牛招聘</a>
+            <a href="http://www.tuniu.com/corp/privacy.shtml" target="_blank" rel="nofollow">隐私保护</a>
+            <a href="http://www.tuniu.com/corp/duty.shtml" target="_blank" rel="nofollow">免责声明</a>
+            <a rel="nofollow" href="http://www.tuniu.com/corp/zizhi.shtml" target="_blank">旅游度假资质</a>
+            <a rel="nofollow" href="http://www.tuniu.com/theme/index/" target="_blank">主题旅游</a>
+            <a href="http://www.tuniu.com/corp/agreement.shtml" target="_blank" rel="nofollow">用户协议</a>
+            <a href="http://www.tuniu.com/corp/sitemap.shtml" target="_blank">网站地图</a>
+            <a rel="nofollow" target="_blank" href="http://www.tuniu.com/ueip/">UEIP</a><br>
+            <a rel="nofollow" href="http://www.tuniu.com/help/" target="_blank">帮助中心</a>
+        </p>
+        <p id="lastSer5_linkp2" class="lastSet_P">Copyright © 2006-2018        <a rel="nofollow" href="http://www.tuniu.com">南京途牛科技有限公司</a>
+            <a rel="nofollow" href="http://www.tuniu.com">Tuniu.com</a> |
+            <a target="_blank" href="http://www.tuniu.com/corp/company.shtml" rel="nofollow">营业执照</a> |
+            <a target="_blank" href="http://www.miibeian.gov.cn/" rel="nofollow">ICP证：苏B2-20130006</a> |
+            <a target="_blank" href="http://www.miibeian.gov.cn/" rel="nofollow">苏ICP备12009060号</a> |
+            <a target="_blank" href="http://sh.tuniu.com">上海旅游网</a>
+        </p>
+        <p>上海市互联网违法和不良信息举报中心电话（021-55056666） 旅游违法行为举报电话（12318） 服务质量投诉电话（962020）</p>
+        <div class="lastSer5_div">
+            <ul class="clear">
+                <li><a href="first.html"><img src="../img/last/lastSer5/lastp1.jpg" alt=""></a></li>
+                <li><a href="first.html"><img src="../img/last/lastSer5/lastp2.png" alt=""></a></li>
+                <li><a href="first.html"><img src="../img/last/lastSer5/lastp3.jpg" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="lastSer5_moveInfo">
+            <div>最新动态：</div>
+            <div class="moveDiv">
+                <ul class="clear">
+                    <li>1分钟前用户***8853as预订&lt;泰州2日游&gt;千垛菜花 溱湖湿地古镇 金黄菜花水上长 万亩森林水上漂 含兴化游船  含溱湖八鲜宴 宿商务酒店&nbsp;&nbsp;&nbsp;&nbsp;2分钟前用户***9053as预订&lt;开封&gt;大宋武侠一日游，</li>
+                    <li>2分钟前用户***9053as预订&lt;开封&gt;大宋武侠一日游，梦回千年在人间。&nbsp;&nbsp;&nbsp;窗前明月光，疑是地上霜。举头望明月，低头思故乡。3分钟前用户***2363as预订&lt;岳阳楼&gt;落霞与孤鹜齐飞，</li>
+                    <li>3分钟前用户***2363as预订&lt;岳阳楼&gt;落霞与孤鹜齐飞，秋水共长天一色。浩大的工程，一略古人的智慧，和风采。还在犹豫吗？用奥拉夫的话说就是：“行动吧，我看看，我再看看”</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lastSer5_imgs">
+            <a href="first.html"><img class="lastSer5_img1" src="" imgSrc='http://img1.tuniucdn.com/img/20130614/common/common_foot/chengxinOne.png' alt=""></a>
+            <a href="first.html"><img src="" imgSrc='http://img1.tuniucdn.com/img/20130614/common/common_foot/buliang.png' alt=""></a>
+            <a href="first.html"><img src="" imgSrc='http://img2.tuniucdn.com/img/20130614/common/common_foot/wangluo.png' alt=""></a>
+            <a href="first.html"><img src="" imgSrc='https://m3.tuniucdn.com/fb2/t1/G5/M00/1E/22/Cii-tFpAbkWITEAmAAAF3Gwa3cUAABOHgP_-ZQAAAZs898.png' alt=""></a>
+            <a href="first.html"><img src="" imgSrc='http://img3.tuniucdn.com/img/20130614/common/common_foot/cata.png' alt=""></a>
+            <a href="first.html"><img src="" imgSrc='http://img1.tuniucdn.com/img/20130614/common/common_foot/chengxin.png' alt=""></a>
+            <a href="first.html"><img src="" imgSrc='http://img3.tuniucdn.com/img/20130614/common/common_foot/pata.png' alt=""></a>
+            <a href="first.html"><img src="" style="height:41px" imgSrc='http://odr.jsdsgsxt.gov.cn:8081/mbm/app/main/electronic/images/ebsIcon.png' alt=""></a>
+            <a href="first.html"><img src="" imgSrc='http://img.tuniucdn.com/img/20130614/common/common_foot/3acomp.png' alt=""></a>
+        </div>
+    
+    </div>
+    <!-- 06 友情链接-->
+    <div id="lastSer6">
+        <dl>
+            <dd class="clear">友情<br>链接：</dd>
+            <dt class="clear">
+                <div id="show_tab" >
+                    <a target="_blank" href="http://www.dfyoo.com/">笛风假期</a>
+                    <a target="_blank" href="http://www.tuniu.com/vblog/">途牛微博客</a>
+                    <a target="_blank" href="http://www.jdair.net/">首都航空</a>
+                    <a target="_blank" href="http://travel.163.com/">网易旅游</a>
+                    <a target="_blank" href="http://travel.ce.cn/">中国经济网旅游</a>
+                    <a href="http://lvyou.baidu.com/" target="blank">百度旅游</a>
+                    <a target="_blank" href="http://travel.people.com.cn/">人民网旅游</a>
+                    <a target="_blank" href="http://cn.made-in-china.com/">中国制造网</a>
+                    <a target="_blank" href="http://www.51766.com/">51766旅游网</a>
+                    <a target="_blank" href="http://www.xiulv.com/">成都青年旅行社</a>
+                    <a target="_blank" href="http://www.cncn.com/">欣欣旅游网</a>
+                    <a target="_blank" href="http://www.lvmama.com">驴妈妈旅游网</a>
+                    <a target="_blank" href="http://www.iqiyi.com/lvyou/">奇艺旅游</a>
+                    <a target="_blank" href="http://www.lavago.com">拉拉勾旅游网</a>
+                    <a target="_blank" href="http://www.mipang.com">米胖旅游网</a>
+                    <a target="_blank" href="http://www.baicheng.com/">百程旅行网</a>
+                    <a target="_blank" href="http://www.xjtour.com">新疆旅游</a>
+                    <a target="_blank" href="http://www.kuxun.cn/">酷讯旅游</a>
+                    <a target="_blank" href="http://www.wed114.cn/">wed114结婚网</a>
+                    <a target="_blank" href="http://www.igo.cn/">新通留学网</a>
+                    <a target="_blank" href="http://www.taoche.com/">二手车</a>
+                    <a target="_blank" href="http://www.qianzhengdaiban.com/">中国签证资讯网</a>
+                    <a target="_blank" href="http://www.19lou.com/">19楼</a>
+                    <a target="_blank" href="http://www.tujia.com/">途家网</a>
+                    <div style="float:right" ><a href="javascript:void(0);">更多</a></div>
+                </div>
+                <div id="unshow_tab" style="display:none">
+                    <a target="_blank" href="http://www.dfyoo.com/">笛风假期</a>
+                    <a target="_blank" href="http://www.tuniu.com/vblog/">途牛微博客</a>
+                    <a target="_blank" href="http://www.jdair.net/">首都航空</a>
+                    <a target="_blank" href="http://travel.163.com/">网易旅游</a>
+                    <a target="_blank" href="http://travel.ce.cn/">中国经济网旅游</a>
+                    <a href="http://lvyou.baidu.com/" target="blank">百度旅游</a>
+                    <a target="_blank" href="http://travel.people.com.cn/">人民网旅游</a>
+                    <a target="_blank" href="http://cn.made-in-china.com/">中国制造网</a>
+                    <a target="_blank" href="http://www.51766.com/">51766旅游网</a>
+                    <a target="_blank" href="http://www.xiulv.com/">成都青年旅行社</a>
+                    <a target="_blank" href="http://www.cncn.com/">欣欣旅游网</a>
+                    <a target="_blank" href="http://www.lvmama.com">驴妈妈旅游网</a>
+                    <a target="_blank" href="http://www.iqiyi.com/lvyou/">奇艺旅游</a>
+                    <a target="_blank" href="http://www.lavago.com">拉拉勾旅游网</a>
+                    <a target="_blank" href="http://www.mipang.com">米胖旅游网</a>
+                    <a target="_blank" href=" http://www.baicheng.com/">百程旅行网</a>
+                    <a target="_blank" href="http://www.xjtour.com">新疆旅游</a>
+                    <a target="_blank" href="http://www.kuxun.cn/">酷讯旅游</a>
+                    <a target="_blank" href="http://www.wed114.cn/">wed114结婚网</a>
+                    <a target="_blank" href="http://www.igo.cn/">新通留学网</a>
+                    <a target="_blank" href="http://www.taoche.com/">二手车</a>
+                    <a target="_blank" href="http://www.qianzhengdaiban.com/">中国签证资讯网</a>
+                    <a target="_blank" href="http://www.19lou.com/">19楼</a>
+                    <a target="_blank" href="http://www.tujia.com/">途家网</a>
+                    <a target="_blank" href="http://www.tuan800.com/">团购</a>
+                    <a target="_blank" href="http://www.yododo.com">游多多自助游</a>
+                    <a target="_blank" href="http://www.xcar.com.cn">爱卡汽车</a>
+                    <a href="http://www.onlylady.com/" target="_blank">女人志</a>
+                    <a target="_blank" href="http://www.tiexue.net/">铁血军事</a>
+                    <a target="_blank" href="http://train.tuniu.com">2013火车时刻表</a>
+                    <a target="_blank" href="http://www.keyunzhan.com">客运站</a>
+                    <a target="_blank" href="http://www.lvye.cn/">绿野户外网</a>
+                    <a target="_blank" href="http://www.5iucn.com/">吾爱旅游网</a>
+                    <a target="_blank" href="http://www.huoche.net">火车时刻表</a>
+                    <a target="_blank" href="http://www.youbian.com">邮编查询</a>
+                    <a target="_blank" href="http://www.chinasspp.com">中国时尚品牌网</a>
+                    <a target="_blank" href="http://www.mafengwo.cn/">蚂蜂窝旅游攻略</a>
+                    <a target="_blank" href="http://www.zhuna.cn/">住哪网</a>
+                    <a target="_blank" href="http://www.baike.com/">互动百科</a>
+                    <a target="_blank" href="http://www.5fen.com/">5分旅游网</a>
+                    <a href="http://www.qyer.com/" target="_blank">穷游网</a>
+                    <a href="http://www.aoyou.com/" target="_blank">遨游旅游网</a>
+                    <a href="http://www.kongfz.com/" target="_blank">孔夫子旧书网</a>
+                    <a href="http://www.tieyou.com/" target="_blank">火车票</a>
+                    <a target="_blank" href="http://china.makepolo.com/">马可波罗网</a>
+                    <a target="_blank" href="http://www.becod.com/">百酷住宿预定</a>
+                    <a target="_blank" href="http://www.tianqi.com/">天气预报15天查询</a>
+                    <a target="_blank" href="http://www.cct.cn">康辉旅游</a>
+                    <a target="_blank" href="http://www.tuniu.com/corp/links.shtml">详细情况</a>
+                    <div style="float:right" ><a href="javascript:void(0);">收起</a></div>
+                </div>
+            </dt>
+        </dl>
+    </div>
+    
+    <!-- 右边 -->
+    <div id="fixedRight">
+        <!-- 最新动态 -->
+        <div class="f_r_t">
+            <a href="first.html">
+                <img src="../img/fr/1.jpeg" alt="">
+            </a>
+            <div style="display:none">
+                <img src="../img/fr/11.jpeg" alt="">
+            </div>
+        </div>
+        <!-- app -->
+        <div class="f_r_app">APP
+            <img src="../img/fr/2.png" alt="">
+        </div>
+        <!-- 我的关注 -->
+        <div class="f_r_my f_r_div">
+            <span class="iconfont f_r_span" style="color:white">&#xe648;</span>
+            <div class="f_r_same">我的关注</div>
+        </div>
+        <!-- 我的订单 -->
+        <div class="f_r_Order f_r_div">
+            <span class="iconfont f_r_span" style="color:white">&#xe6e1;</span>
+            <div class="f_r_same">我的订单</div>
+        </div>
+        <!-- 我的卷 -->
+        <div class="f_r_roll f_r_div">
+            <span class="iconfont f_r_span" style="color:white">&#xe79e;</span>
+            <div class="f_r_same">我的卷</div>
+        </div>
+        <!-- 我的消息 -->
+        <div class="f_r_info f_r_div">
+            <span class="iconfont f_r_span" style="color:white">&#xe62f;</span>
+            <div class="f_r_same">我的消息</div>
+        </div>
+        <!-- 问卷调查 -->
+        <div class="f_r_search f_r_div">
+            <span class="iconfont f_r_span" style="color:white">&#xe62c;</span>
+            <div class="f_r_same">问卷调查</div>
+        </div>
+        <!-- 在线客服 -->
+        <div class="f_r_online f_r_div">
+            <span class="iconfont f_r_span" style="color:white">&#xe628;</span>
+            <div class="f_r_same">在线客服</div>
+        </div>
+        <!-- 建议 -->
+        <div class="f_r_succ f_r_div">
+            <span class="iconfont f_r_span" style="color:white">&#xe641;</span>
+            <div class="f_r_same">建议</div>
+        </div>
+        <!-- 顶部 -->
+        <div class="f_r_top f_r_div">
+            <span class="iconfont f_r_span" style="color:white">&#xe6e1;</span>
+            <div class="f_r_same">顶部</div>
+        </div>
+    </div>
+</body>
+</html>
