@@ -40,9 +40,11 @@ function addOrder(arr){
             //     "city":cityInp.value,
             //     "time":time
             // }
+            console.log(obj);
+            console.log(obj.order);
             div.innerHTML =   '<ul class="show_goods_ul">'+
             '<li style="height:20px;line-height:20px;font-size:12px;color:#333;padding:0 0 10px 20px;">'+
-            '<span>下单时间: <i class="order_time_i">'+ obj.cookieValue.time +'</i></span><span style="padding-left:35px;" >订单号: <i class="order_number">'+ getOrderNumber() +'</i></span>'+
+            '<span>下单时间: <i class="order_time_i">'+ obj.cookieValue.time +'</i></span><span style="padding-left:35px;" >订单号: <i class="order_number">'+ obj.cookieValue.order +'</i></span>'+
             '</li >'+
             '<li style="height:54px;font-size:14px;color:#333;padding:0 0 10px 20px;">'+
             '<div style="float: left; height:54px;line-height:54px;width:295px;">'+
@@ -76,7 +78,7 @@ function addWait(arr){
           
             div.innerHTML =   '<ul class="show_goods_ul">'+
             '<li style="height:20px;line-height:20px;font-size:12px;color:#333;padding:0 0 10px 20px;">'+
-            '<span>下单时间: <i class="order_time_i">'+ obj.cookieValue.time +'</i></span><span style="padding-left:35px;" >订单号: <i class="order_number">'+ getOrderNumber() +'</i></span>'+
+            '<span>下单时间: <i class="order_time_i">'+ obj.cookieValue.time +'</i></span><span style="padding-left:35px;" >订单号: <i class="order_number">'+ obj.cookieValue.order +'</i></span>'+
             '</li >'+
             '<li style="height:54px;font-size:14px;color:#333;padding:0 0 10px 20px;">'+
             '<div style="float: left; height:54px;line-height:54px;width:295px;">'+
@@ -109,7 +111,7 @@ function addSum(arr){
        
         div.innerHTML =   '<ul class="show_goods_ul">'+
         '<li style="height:20px;line-height:20px;font-size:12px;color:#333;padding:0 0 10px 20px;">'+
-        '<span>下单时间: <i class="order_time_i">'+ obj.cookieValue.time +'</i></span><span style="padding-left:35px;" >订单号: <i class="order_number">'+ getOrderNumber() +'</i></span>'+
+        '<span>下单时间: <i class="order_time_i">'+ obj.cookieValue.time +'</i></span><span style="padding-left:35px;" >订单号: <i class="order_number">'+ obj.cookieValue.order +'</i></span>'+
         '</li >'+
         '<li style="height:54px;font-size:14px;color:#333;padding:0 0 10px 20px;">'+
         '<div style="float: left; height:54px;line-height:54px;width:295px;">'+

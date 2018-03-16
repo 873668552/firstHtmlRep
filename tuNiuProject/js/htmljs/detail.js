@@ -264,8 +264,10 @@ document.querySelector('.setGood').onmousedown = function(e){
             "son":total.sonCount,
             'sum':showInfo.innerHTML,
             "city":cityInp.value,
-            "time":time
+            "time":time,
+            "order":getOrderNumber()
         }
+        console.log(obj.order);
         // console.log(obj);
         var getPW = getCookie('get_pw'),// 其他登录
         twoWeek = getCookie('two_pw')// 两周登录
@@ -433,3 +435,341 @@ function cityBtn(){
     cityInp.style.border = 'none';
     btn.parentElement.style.border = 'none';
 }
+
+function getOrderNumber(){
+    return '' + 123 + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10) ;
+}
+// imgs点击事件
+function imgClick(num){
+    if(num>=174 && num < 282){
+        return 37;
+    }
+    if(num>=282 && num < 390){
+        return 145;
+    }
+    if(num>=390 && num < 498){
+        return 253;
+    }
+    if(num>=498 && num <= 606){
+        return 361;
+    }
+}
+/// 添加轮播事件
+function addlunboEvent(){
+    // 1 结构 left_lunbo 轮播ol  border_div 遮罩 左边按钮 left_btn_lunbo 右边按钮 right_btn_lunbo
+    // srcimg 108 src
+    var ols = document.querySelector('.left_lunbo'),// 展示区
+    showLs = document.querySelectorAll('.left_lunbo>li>img');
+    left = document.querySelector('.left_btn_lunbo'),
+    right = document.querySelector('.right_btn_lunbo'),
+    divTop = document.querySelector('.border_div'),
+    smallul = document.querySelector('.small_ul'),
+    glassDiv = document.querySelector('.glass_div'),
+    imgs = document.querySelectorAll('.small_ul>li>img'),
+    len = imgs.length,
+    cur =0;
+    // img点击事件
+    
+    Array.from(imgs).forEach(function(val,ind){
+        val.ind = ind;
+        var leftShow_one = showLs[0],
+        showObj = showLs[1];
+        
+        val.onclick = function(e){
+        //     console.log(val.offsetLeft);
+        console.log(divTop.parentElement.offsetLeft)
+        console.log(e.pageX)
+            // 
+            cur = this.ind;
+            // leftShow = this.src;
+            leftShow_one.src = imgs[cur].src;;
+            if(cur>=0&& cur <len-1){
+                startMove(divTop,{
+                    "left":imgClick(e.pageX)
+                },function(){
+                    startMove(ols,{
+                        "left":0
+                    },function(){
+                        showObj.src = imgs[cur].src;;
+                        ols.style.left = '-500px';
+                    })
+                })
+            }
+            new Glass(glassDiv,3,150,150,imgs[cur].src);
+        }
+    })
+    //
+    Array.from(imgs).forEach(function(val,ind){
+        val.ind = ind;
+    })
+    // 2 逻辑
+    
+    var  olsShow = showLs[1],
+    leftshow = showLs[2],
+    rigthShow = showLs[0];
+    // 右边
+    right.onclick = function(){
+        cur ++;
+        if(cur >=0 && cur <=3){
+            // console.log(cur)
+            leftshow.src = imgs[cur].src;
+            //borderdiv 
+            // divTop.style.left = cur * 108 + 37 + 'px';
+            startMove(divTop,{
+                "left":cur*108 + 37
+            },function(){
+                startMove(ols,{
+                    "left":-1000
+                },function(){
+                    // console.log(imgs,cur,imgs[cur].src);
+                    showLs[1].src = imgs[cur].src;
+                    ols.style.left = '-500px';
+                })
+            })
+        }else if( cur == len-1){
+            console.log(cur);
+            console.log(leftshow.src,imgs[cur].src)
+            leftshow.src = imgs[cur].src;
+            startMove(smallul,{
+                "left":-71
+            },function(){
+                startMove(ols,{
+                    "left":-1000
+                },function(){
+                    // console.log(imgs,cur,imgs[cur].src);
+                    showLs[1].src = imgs[cur].src;
+                    ols.style.left = '-500px';
+                })
+            })
+        }else{
+            cur = 0;
+            leftshow.src = imgs[cur].src;
+            //borderdiv 
+            // divTop.style.left = cur * 108 + 37 + 'px';
+            smallul.style.left = '37px';
+            startMove(divTop,{
+                "left":cur*108 + 37
+            },function(){
+                startMove(ols,{
+                    "left":-1000
+                },function(){
+                    // console.log(imgs,cur,imgs[cur].src);
+                    showLs[1].src = imgs[cur].src;
+                    ols.style.left = '-500px';
+                })
+            })
+        }
+        new Glass(glassDiv,3,150,150,imgs[cur].src)
+    }
+    // 左边
+    left.onclick =function(){
+        
+        if(cur == len-1){
+            rigthShow.src = imgs[cur].src;
+            // smallul.style.left = '37px';
+            
+            startMove(smallul,{
+                'left':37
+            },function(){
+                startMove(ols,{
+                    "left":0
+                },function(){
+                    // console.log(imgs,cur,imgs[cur].src);
+                    showLs[1].src = imgs[cur].src;
+                    ols.style.left = '-500px';
+                })
+            })
+        }
+        cur--;
+        if(cur<=3&& cur>=0){
+            rigthShow.src = imgs[cur].src;
+            // console.log(cur);
+            //borderdiv 
+            // divTop.style.left = cur * 108 + 37 + 'px';
+            startMove(divTop,{
+                "left":cur*108 + 37
+            },function(){
+                startMove(ols,{
+                    "left":0
+                },function(){
+                    // console.log(imgs,cur,imgs[cur].src);
+                    showLs[1].src = imgs[cur].src;
+                    ols.style.left = '-500px';
+                })
+            })
+        }else if(cur < 0){
+            cur = len -1;
+            rigthShow.src = imgs[cur].src;
+            smallul.style.left = '-71px';
+            startMove(divTop,{
+                "left":3*108 + 37
+            },function(){
+                startMove(ols,{
+                    "left":0
+                },function(){
+                    // console.log(imgs,cur,imgs[cur].src);
+                    showLs[1].src = imgs[cur].src;
+                    ols.style.left = '-500px';
+                })
+            })
+        }
+        // 添加div glassDiv
+        new Glass(glassDiv,3,150,150,imgs[cur].src)
+    }
+}   
+addlunboEvent();
+
+// 原生js 封装放大镜 
+// new Glass(div,2,200,200,'img/8.jpg')
+class Glass{
+    constructor(elem,b,w,h,src){
+        if(typeof(elem) == 'string'){
+            this.elem = document.getElementById(elem);
+        }else{
+            this.elem = elem;
+        }
+        this.elem.innerHTML = '';
+        this.parent = elem.parentNode;
+        this.w = w;
+        this.h = h;
+        this. b = b;
+        this.src = src;
+        this.init();
+    }
+    // 1 构造
+    init(){
+        // 基本结构
+        this.base();
+        // 逻辑
+        this.logic();
+    }
+    // 2 基本结构
+    base(){
+        
+        this.bigDiv = document.createElement('div');
+        this.smallDiv = document.createElement('div');
+        this.midDiv = document.createElement('div');
+        this.img = document.createElement('img');
+        this.bigImg = document.createElement('img');
+        this.smallImg = document.createElement('img');
+        // 布局
+        var elem = this.elem;
+        elem.appendChild(this.img);
+        elem.appendChild(this.midDiv);
+        elem.appendChild(this.smallDiv);
+        this.smallDiv.appendChild(this.smallImg);
+        this.parent.insertBefore(this.bigDiv,elem.nextSibling);
+        this.bigDiv.appendChild(this.bigImg);
+        this.smallDiv.style.cursor = 'pointer';
+
+        this.img.src = this.bigImg.src = this.smallImg.src = this.src;
+        // this.bigDiv.style.width = this.midDiv.style.width = this.img.style.width = this.smallImg.style.width = this.w + 'px';
+        // this.bigDiv.style.height = this.midDiv.style.height = this.img.style.height = this.smallImg.style.height = this.h + 'px';
+        // this.bigImg.style.width = this.w * this.b + 'px';
+        // this.bigImg.style.height = this.h * this.b + 'px';
+
+        this.baseStyle(this.elem,{
+            'width':this.w,
+            'height':this.h,
+            'position':'relative',
+            'overflow':'hidden'
+        })
+        this.baseStyle(this.midDiv,{
+            'width':this.w,
+            'height':this.h,
+            'position':'absolute',
+            // 'background':'rgba(0,0,0,1)'
+        })
+        this.baseStyle(this.smallDiv,{
+            'width':this.w/this.b,
+            'height':this.h/this.b,
+            'position':'absolute',
+            'overflow':'hidden',
+            'display':'none'
+        })
+        this.baseStyle(this.img,{
+            'width':this.w,
+            'height':this.h,
+            'position':'absolute'
+        })
+        this.baseStyle(this.smallImg,{
+            'width':this.w,
+            'height':this.h,
+            'position':'absolute'
+        })
+
+        this.baseStyle(this.bigImg,{
+            'width':this.w*this.b,
+            'height':this.h*this.b,
+            'position':'relative'
+        })
+        this.baseStyle(this.bigDiv,{
+            'width':this.w,
+            'height':this.h,
+            'float':'left',
+            'marginLeft':this.w+1,
+            'marginTop':-this.h,
+            'overflow':'hidden',
+            'display':'none'
+        })
+    }
+    // 3 逻辑
+    logic(){
+        var first =0,
+        isFirst = true;
+        var that = this,
+        l = this.elem.offsetLeft,t = this.elem.offsetTop, 
+        w = parseInt(this.smallDiv.style.width)/2,h = parseInt(this.smallDiv.style.height)/2;
+        this.elem.onmouseleave = function(e){
+            this.smallDiv.style.display = 'none';
+            this.bigDiv.style.display = 'none';
+            this.midDiv.style.background = '';
+            isFirst = true;
+        }.bind(this);
+        this.elem.onmouseenter = function(e){
+            this.smallDiv.style.display = 'block';
+            this.bigDiv.style.display = 'block';
+            this.midDiv.style.background = 'rgba(0,0,0,0.5)';
+            if(isFirst){
+                isFirst = false;
+                first = e.clientY;
+            }
+        }.bind(this);
+        this.elem.onmousemove = function(e){
+            
+            var x = e.pageX - l - w;
+            var y = e.pageY - h - t ;
+            if(x < 0){x = 0}
+            if(y < 0){y = 0}
+            // console.log(x,this.w - l - w);
+            if(x > this.w -w*2){x = this.w -w*2}
+            if(y > this.h - h*2){y = this.h - h*2}
+        //   console.log(this.elem.offsetTop,e.clientY)
+
+            this.moveStyle(this.smallDiv,x,y);
+            // console.log(this.smallDiv);
+            this.moveStyle(this.smallImg,-x,-y);
+            this.moveStyle(this.bigImg,-x*that.b,-y*that.b);
+           
+        }.bind(this)
+    }
+    moveStyle(elem,x,y){
+       
+        elem.style.left = x +'px';
+        elem.style.top = y +'px';
+    }
+    baseStyle(elem,json){
+        // console.log("--------" ,elem,json);
+        var div = elem;
+        div.style.width = json.width +'px';
+        div.style.height = json.height +'px';
+        if(json.background){div.style.background = json.background;}
+        if(json.overflow){div.style.overflow = json.overflow;}
+        if(json.position){div.style.position = json.position;}
+        if(json.float){div.style.float = json.float;}
+        if(json.marginTop){div.style.marginTop = json.marginTop  +'px';}
+        if(json.marginLeft){div.style.marginLeft = json.marginLeft  +'px';}
+        if(json.display){div.style.display = json.display;}
+    }
+}
+new Glass(document.querySelector('.glass_div'),3,150,150,'../img/detail/1.jpg');
